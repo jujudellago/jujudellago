@@ -1,0 +1,52 @@
+<%# page_title "list des traductions" %>
+<div class="admin_filter">
+<div class="pages_functions"> 
+<h1><%= I18n.t("My Key") %>  <%= I18n.t("My new Key") %>  </h1>
+
+</div>
+<% form_tag(:url=>'/admin/translations',:method=>'get', :html=>{:id=>'translations_list_form',:class=>'inline_form'})  do %>
+<div class="form-container">
+<table class="admin_search_form">
+	<tr>
+		<td colspan="2">
+			Comme dans l'intégralité du site, les traductions et labels peuvent être édités en faisant un click droite sur le mot à traduire
+		</td>
+	</tr>			
+<tr>
+	<td><label>Recherche sur la valeur en <strong>français</strong>:</label></td>
+	<td>
+		<%= text_field_tag :translation_search, params[:translation_search], :size => 60 , :class=>"text" %>       
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+			<div class="pagination">
+			<%- @letters.each do |letter| -%>
+				<%= link_to(letter,casein_translations_url(:letter=>letter)) %>
+			<%- end -%>
+			</div>
+		</td>
+</tr>
+<tr>
+	<td valign="top" colspan="2"><label>Par page:</label><% options=%w(10 20 50 100)  %>
+	<%=  select("list", "per_page", options, { :include_blank => false, :selected=>@per_page.to_s }) %>
+	
+		</td>
+	<td>
+	</td>
+</tr>
+</table>
+<div class="buttonrow"><%= submit_button "Search" ,{:class=>'positive', :name=>nil,:icon=>'zoom.png'} %></div>
+</div>
+<% end %></div>
+<div id="translations_table">
+<%= render :partial => '/casein/translations/translations_list' %>
+</div>   
+
+	
+
+
+
+
+<br />
+

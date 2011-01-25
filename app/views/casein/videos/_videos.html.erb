@@ -1,0 +1,44 @@
+<%- if @videos && @videos.size>0 -%>
+<%= will_paginate(@videos) %>
+
+
+		
+		<!-- <ul class="controls-buttons">
+				<li><a href="#" title="Previous"><img src="images/icons/fugue/navigation-180.png" width="16" height="16"> Prev</a></li>
+				<li><a href="#" title="Page 1"><b>1</b></a></li>
+				<li><a href="#" title="Page 2" class="current"><b>2</b></a></li>
+				<li><a href="#" title="Page 3"><b>3</b></a></li>
+				<li><a href="#" title="Page 4"><b>4</b></a></li>
+				<li><a href="#" title="Page 5"><b>5</b></a></li>
+				<li><a href="#" title="Next">Next <img src="images/icons/fugue/navigation.png" width="16" height="16"></a></li>
+				<li class="sep"></li>
+				<li><a href="#"><img src="images/icons/fugue/arrow-circle.png" width="16" height="16"></a></li>
+			</ul>
+			
+		</div> -->
+	
+
+<%-
+headers=Array.new 
+headers<<"&nbsp;"
+headers<<"Title"
+headers<<"Artist"
+headers<<"Year"
+headers<<"Created"
+headers<<"Updated"
+headers<<"Actions"
+-%>
+
+<%= make_table_headers(@videos,headers,{:table_class=>"table",:table_id=>'casein_videos_table'}) %>
+<%- @videos.each_with_index do |video,i|-%>
+ <tr id="<%= video.dom_id %>">	
+   <%= render :partial => 'video', :locals => {:video=>video} %>
+</tr>
+<% end %>
+<%= make_table_footers(headers) %>
+<%- else -%>
+no videos to display
+<%- end -%>
+
+
+

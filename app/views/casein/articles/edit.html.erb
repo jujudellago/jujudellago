@@ -1,0 +1,8 @@
+<% page_title "Edit Article" %>
+<div class="form-container">
+<%= semantic_form_for @article, :url => casein_article_url(@article), :html => {:multipart => true} do |f| %>	
+	<%= render :partial => '/casein/articles/article_form', :locals => {:f => f} -%>
+<% end -%>
+
+</div>
+

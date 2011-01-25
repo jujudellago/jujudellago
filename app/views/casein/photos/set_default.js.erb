@@ -1,0 +1,4 @@
+$('.photos_editor_box').removeClass("default");
+$('#<%=@photo.dom_id%>').addClass("default");
+$('#default_<%=@photo.dom_id%>').html("<%= escape_javascript( render :partial =>'default_photo', :locals=>{:gallery=>@photo.gallery,:photo=>@photo,:defimg=>true} ) %>");
+<%= js_growl_message %>

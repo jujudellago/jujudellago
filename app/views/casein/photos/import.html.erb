@@ -1,0 +1,36 @@
+<ul id="breadcrumb_folders">
+  <% @breadcrumb.each do |crumb| %>
+  <li>/<%= link_to crumb[:name], import_casein_gallery_photos_path(@gallery,  :dir => crumb[:url]) %>
+	</li>
+  <% end %>
+</ul>
+
+
+
+<ul class="directories">
+  <% @dirs.each do |dir| %>
+  <li class="dir">
+	<%= link_to dir[:name], import_casein_gallery_photos_path(@gallery,  :dir => dir[:url]) %>
+  </li>
+  <% end %>
+</ul>
+
+<ul class="files_browser">
+  <% @files.each do |file| %>
+  <li class="<%= file[:type] %>">
+    <div class="bigicon <%= "imported" if file[:imported] %>">
+      <a href="<%= file[:url] %>"><img src="<%= file[:icon] %>" title="<%= file[:name] %>" /></a>
+    </div>
+	<%=  file[:imported] ? "already in gallery" : "to import" %>
+    <ul class="file_infos">
+      <li class="label"><label title="<%= file[:name] %>"><%= file[:name] %></label></li>
+    </ul>
+  </li>
+  <% end %>
+</ul>
+
+<%= content_for :control_bar do %>
+  <%= link_to "#{casein_show_icon "add"}Back to galleries".html_safe, casein_galleries_path,:class=>'button_link'%>
+  <%= link_to "#{casein_show_icon "add"}Back to photos".html_safe, casein_gallery_photos_path(@gallery),:class=>'button_link'%>
+  <%= link_to "#{casein_show_icon "add"} import new photos".html_safe, import_casein_gallery_photos_path(@gallery,:import=>"yes",:dir=>params[:dir]) ,:class=>'button_link'%>
+<% end %>

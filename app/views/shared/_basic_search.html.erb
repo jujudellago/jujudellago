@@ -1,0 +1,23 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<p>
+	<%= label :search, "Search" %>
+	<%= text_field_tag :search, params[:search], :size => 60 , :class=>"text" %>       
+</p>
+<p>
+<p>
+	<label>Per page:</label><% options=%w(10 20 50 100)  %>
+	<select name="per_page">
+		<%=   options_for_select(options).html_safe %>
+	</select>
+	&nbsp;<em>Order by:</em><% options=%w(created_at updated_at title artists )  %>
+	<select name="sort">
+		<%=   options_for_select(options, :selected => params[:sort]).html_safe %>
+	</select>
+	&nbsp;<em>Asc/desc:</em>
+	<% options=%w(desc asc )  %>
+	<select name="direction">
+		<%=   options_for_select(options, :selected => params[:direction]).html_safe %>
+	</select>
+</p>
+<p><%= submit_button "Search" ,{:class=>'positive', :name=>nil,:icon=>'magnifier.png'} %></p>

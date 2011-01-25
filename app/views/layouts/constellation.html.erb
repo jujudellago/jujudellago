@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title><%= casein_generate_page_title %> </title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>
+	  								
+	<script type="text/javascript" src="http://jquery-ui.googlecode.com/svn/trunk/ui/i18n/jquery.ui.datepicker-fr.js"></script>
+	<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css" />
+   	
+	<%= stylesheet_link_merged(:constellation ).html_safe %>
+	<%= javascript_include_merged(:constellation).html_safe  %>
+	<%= csrf_meta_tag %>
+	<%= yield :head_js %>
+</head>
+
+<body>
+<%= 	in_page_growl_message %>
+<!-- The template uses conditional comments to add wrappers div for ie8 and ie7 - just add .ie or .ie7 prefix to your css selectors when needed -->
+<!--[if lt IE 9]><div class="ie"><![endif]-->
+<!--[if lt IE 8]><div class="ie7"><![endif]-->
+	
+	<!-- Header -->
+	
+	<!-- Server status -->
+	<header><div class="container_12">
+		
+		<p id="skin-name"><small>Jujudellago<br> Admin</small> <strong>1.0</strong> <strong><%= I18n.locale %></strong></p>
+		<div class="server-info">Server: <strong><%= SITE_URL %></strong></div>
+		<div class="server-info">Ruby on Rails: <strong><%= Rails.version %></strong></div>
+		
+	</div></header>	
+	<!-- End server status -->
+	
+	<!-- Main nav -->
+	<nav id="main-nav">
+		<ul class="container_12">
+			<%= render :partial => '/layouts/top_navigation' %>
+		</ul>
+	</nav>
+	<!-- End main nav -->
+	
+	<!-- Sub nav -->
+	<div id="sub-nav"><div class="container_12">
+		
+		<a href="#" title="Help" class="nav-button"><b>Help</b></a>
+	
+		<form id="search-form" name="search-form" method="post" action="search.html">
+			<input type="text" name="s" id="s" value="" title="Search admin..." autocomplete="off">
+		</form>
+	
+	</div></div>
+	<!-- End sub nav -->
+	
+	<!-- Status bar -->
+	<div id="status-bar"><div class="container_12">
+
+		<ul id="status-infos">
+			<li class="spaced">Logged as: <strong><%= @session_user.name %></strong> <em><%= Time.zone.name %></em></li>
+			<li><%= link_to 'Profile', casein_user_path(@session_user) %></li>
+			<li><span class="smaller"><%= link_to 'Logout', casein_user_session_path, :method => :delete,:class=>'button red' %></span></li>
+		</ul>
+		
+		<!-- <ul id="breadcrumb">
+				<li><a href="#" title="Home">Home</a></li>
+				<li><a href="#" title="Dashboard">Dashboard</a></li>
+			</ul> -->
+	
+	</div></div>
+	<!-- End status bar -->
+	
+	<div id="header-shadow"></div>
+	<!-- End header -->
+	
+	<!-- Always visible control bar -->
+	<%= control_bar(yield :control_bar) %>
+	<!-- End control bar -->
+
+	
+	<%#= stylised_error_message %>
+	<!-- Content -->
+	<article class="container_12">
+		<%= sidebar_or_full_layout(yield :sidebar).html_safe %>
+			<div class="block-border"><div class="block-content">
+				<!-- We could put the menu inside a H1, but to get valid syntax we'll use a wrapper -->
+				<div class="h1">
+					<h1><%= @page_title||casein_generate_page_title %></h1>
+				</div>
+			
+					<%= yield %>
+					<div class="clear"></div>
+			</div></div>
+		</section>
+		
+
+		
+		<div class="clear"></div>
+		
+	</article>
+	
+	<!-- End content -->
+	
+	<footer>
+		
+		<div class="float-left">
+					<% if @session_user.is_admin? %>
+					<%= link_to 'Users', casein_users_path,:class=>'button' %>
+					<% end %>
+					<%= render :partial => '/casein/layouts/right_navigation' %>
+		</div>
+		
+		<div class="float-right">
+			<a href="#top" class="button"><img src="images/icons/fugue/navigation-090.png" width="16" height="16"> Page top</a>
+		</div>
+		
+	</footer>
+
+<!--[if lt IE 8]></div><![endif]-->
+<!--[if lt IE 9]></div><![endif]-->
+</body>
+</html>

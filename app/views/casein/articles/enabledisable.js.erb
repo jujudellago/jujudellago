@@ -1,0 +1,2 @@
+$('#<%=@article.dom_id %>').html("<%= escape_javascript(	render :partial => 'casein/articles/article', :locals => { :article => @article } )%>");
+<%= js_growl_message %>

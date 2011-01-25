@@ -1,0 +1,27 @@
+<%# if @articles && @articles.size>0 %>
+<div class="makeremote"><%= will_paginate(@articles) %></div>
+<%# html_table(@articles, %w{title date category img file att lng all_lang? history publish edit delete}, :table_class=>"fancytable",:table_id=>'casein_articles_table') do |article, klass| -%>
+<%-
+headers=Array.new 
+headers<<"title #{country_icon("fr")}".html_safe
+headers<<"date"
+headers<<"Categorie"
+headers<<country_icon("icon")
+headers<<" "
+headers<<"enable "
+headers<<"edit"
+headers<<"destroy"
+-%>
+
+<%= make_table_headers(@articles,headers,{:table_class=>"table",:table_id=>'casein_articles_table'}) %>
+<%- @articles.each_with_index do |article,i|-%>
+ <tr class="<%= 'even' if i.modulo(2) == 0 %> hover" id="<%= article.dom_id %>">	
+   <%= render :partial => 'article', :locals => {:article=>article} %>
+</tr>
+<% end %>
+</table>
+<div class="makeremote"><%= will_paginate(@articles) %></div>
+<p></p>
+
+
+

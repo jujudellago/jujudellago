@@ -1,0 +1,9 @@
+<%- content_for :keywords do-%>
+<%= @article.keywords -%>
+<%- end -%>
+<%- content_for :description do -%>
+<%= @article.category.name %> <%= @article.pref_intro  -%>
+<%- end -%>
+<% page_title @article.title %>
+<%= render :partial=>'/articles/article_body' %>
+

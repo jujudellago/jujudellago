@@ -1,0 +1,2 @@
+$('#<%=@video.dom_id %>').html("<%= escape_javascript(	render :partial => 'casein/videos/video', :locals => { :video => @video } )%>");
+<%= js_growl_message %>

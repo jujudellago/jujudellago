@@ -1,0 +1,15 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+public/galleries/*
+.DS_Store
+public/cache/**/*
+index/*
+public/tests/*
+vendor/rails/*
+config/database.yml
+public/javascripts/*packaged*
+public/stylesheets/*packaged*
+db/schema.rb
+public/cache/*

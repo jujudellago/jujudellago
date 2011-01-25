@@ -1,0 +1,16 @@
+<%- page_title "Edit video" -%>
+
+<%= semantic_form_for [:casein,@video],:input_html =>{ :class=>'block-content form'} do |f| %>			
+	<%= render :partial => 'casein/videos/video_form', :locals => { :f => f } %>
+<% end %>
+
+<%= content_for :sidebar do%>
+	<h1>Video Preview</h1>
+	<div class="center"><%= video_embed_code(@video,{:html5=>true,:width=>300,:height=>200}).html_safe %></div>
+<% end %>
+
+<%= content_for :control_bar do %>
+	<%= link_to( "Cancel", casein_videos_path,:class=>'button_link').html_safe %>
+<%- end -%>
+
+

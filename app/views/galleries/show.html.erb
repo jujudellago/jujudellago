@@ -1,0 +1,18 @@
+<%- @extra_body_class="category category-gallery" -%>
+<% if !@photos.blank? %>
+<div class="gallery_container">
+<% for photo in @photos %>
+	<div class="post">
+		<!-- <h2 class="posttitle"><a href="toto">a title</a></h2>  -->
+		<a class="thumb" href="<%= photo.image.url %>" rel="colorbox_slideshow"><%= image_tag(photo.image.url(:small),:class=>'postThumb',:height=>160, :width=>220,:alt=>"#{@gallery.name}-#{photo.id.to_s}") %></a>
+   		<div class="clear"></div>
+	</div><!--end post-->
+<% end %>
+</div>
+<%#= will_paginate @photos %>
+<% else %>
+  
+<% end %>
+
+
+

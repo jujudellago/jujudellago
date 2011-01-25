@@ -1,0 +1,15 @@
+<td style="width:10%"><%= translation.key %></td>
+<%- %w(fr en).each do |l| -%>
+<td style="width:30%"  class='tr_span' id='tk_<%=translation.id.to_s%>'>	
+	<%- tr=Translation.find_by_locale_and_key(l,translation.key) -%>
+	<%- val=tr.value if tr -%>
+	<%= val.blank? ? "non traduit" : val %>	</td>
+<%- end -%>
+<td><%= list_destroy_button(casein_translation_path(translation),true,"translation: #{translation.key}") %></td>	
+
+
+
+
+
+
+

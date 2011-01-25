@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id_video: 1
+  id_party: 1
+  artist: MyString
+  title: MyString
+  year: MyString
+  description: MyText
+  embeded: MyText
+  image_path: MyString
+  vote_count: 1
+  play_count: 1
+  comment_count: 1
+  nb_sort_order: 1
+
+two:
+  id_video: 1
+  id_party: 1
+  artist: MyString
+  title: MyString
+  year: MyString
+  description: MyText
+  embeded: MyText
+  image_path: MyString
+  vote_count: 1
+  play_count: 1
+  comment_count: 1
+  nb_sort_order: 1

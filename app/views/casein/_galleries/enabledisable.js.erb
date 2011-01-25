@@ -1,0 +1,2 @@
+$('#gallery_tr_<%=@gallery.id.to_s %>').html("<%= escape_javascript(	render :partial => 'casein/galleries/gallery', :locals => { :gallery => @gallery } )%>");
+<%= js_growl_message %>

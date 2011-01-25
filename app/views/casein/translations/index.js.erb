@@ -1,0 +1,21 @@
+$('#translations_table').html("<%=escape_javascript(render(:partial=>'/admin/translations/translations_list'))%>");
+	$(".tr_span").hover(function(){
+	//console.log(this.id);
+	  $(this).addClass('pretty-hover');
+	}, function(){
+	  $(this).removeClass('pretty-hover');
+	});
+	
+	
+	$(".tr_span").rightClick( function() {
+	    //alert('translate '+$(this).attr('id'));
+		url='/<%=I18n.locale%>/admin/translations/smart_edit/'+$(this).attr('id');
+		Boxy.load(url,{
+			modal: true
+		//	title: "Traductions",
+		//	closeText:"[<%=I18n.t(:close,:default=>'fermer')%>]"
+		});
+	 });
+
+
+

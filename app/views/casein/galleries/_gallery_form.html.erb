@@ -1,0 +1,22 @@
+<%= f.inputs do %>
+
+	<%= f.input :name  %>
+	<%= f.input :gallery_type  %>
+	<%= f.input :location  %>
+ 	<%= f.input :event_date, :as => :date_picker%>
+<%- end -%>
+
+<%= f.inputs do %>
+	<%= f.input :label_fr  %>
+	<%= f.input :label_en  %>
+	
+
+	<%= f.input :description_fr  %>
+	<%= f.input :description_en  %>
+<%- end -%>
+
+<% f.buttons do %>
+  <%= f.commit_button %>
+<% end %>
+
+

@@ -1,0 +1,25 @@
+<%# if @translations && @translations.size>0 %>
+<div class="makeremote"><%= will_paginate(@translations) %></div>
+<% 
+headers=Array.new 
+headers<<"key"
+headers<<country_icon("fr")
+#headers<<country_icon("de")
+headers<<country_icon("en")
+headers<<"destroy" 
+#html_table(@translations, headers, :table_class=>"fancytable",:table_id=>'admin_translations_table') do |translation, klass| 
+	-%>
+<%#= html_table(@translations, headers, :table_class=>"fancytable",:table_id=>'admin_translations_table') do |translation, klass|  %>
+<%= make_table_headers(@translations,headers,{:table_class=>"itemList",:table_id=>'admin_translations_table'}) %>
+<%- @translations.each_with_index do |translation,i|-%>
+<tr class="<%= 'even' if i.modulo(2) == 0 %> hover" id="<%#= translation.dom_id %>">	
+	<%#= debug translation %>
+   <%= render :partial => 'casein/translations/translation', :locals => {:translation=>translation} %>
+	</tr>
+<% end %>
+</table>
+
+<div class="makeremote"><%= will_paginate(@translations) %></div>
+<p></p>
+
+

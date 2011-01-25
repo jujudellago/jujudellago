@@ -1,0 +1,5 @@
+<%- if defimg -%>
+default image
+<%- else -%>
+	<%= casein_table_cell_link "set default", set_default_casein_gallery_photo_path(gallery,photo), :method => :post, :remote=>:true %>
+<%- end -%>

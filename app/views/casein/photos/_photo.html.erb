@@ -1,0 +1,22 @@
+<%- defimg=false
+	if (photo.id==@gallery.default_photo_id)
+		defimg=true
+	end -%>
+<li class="photos_editor_box <%= "default" if defimg %>" id="<%= photo.dom_id %>">
+
+		<div class="photo_image"><%= image_tag(photo.image.url(:thumb)) %></div>
+		<div class="photo_legend">
+			fr: <%= casein_table_cell_link photo.legend_fr, casein_gallery_photo_path(@gallery,photo) %><br />
+			en: <%= casein_table_cell_link photo.legend_en, casein_gallery_photo_path(@gallery,photo) %>
+		</div>
+		<div class="photo_functions">
+
+			<span id="default_<%= photo.dom_id %>">
+				<%= render :partial =>'default_photo', :locals=>{:gallery=>@gallery,:photo=>photo,:defimg=>defimg} %>
+			</span>
+			<span><%= link_to(casein_show_row_icon("edit"), casein_gallery_photo_path(@gallery,photo)) %></span>
+			<span><%= link_to(casein_show_row_icon("delete"), casein_gallery_photo_path(@gallery,photo),:class=>'with-tip',:remote=>true, :method => :delete, :confirm => "Are you sure you want to delete this photo?",:remote=>true) %></span>
+		</div>
+	</li>
+	
+	

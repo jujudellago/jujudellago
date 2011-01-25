@@ -1,0 +1,10 @@
+<%=  ajax_spinner_for("#{object.id}_enabled_#{object.class.name.downcase}") %>
+ <%  if object.enabled  %>
+	<%#= link_to(image_tag(get_cms_icon('led_green')),disable_path,:id=>"#{object.id}_enabled_#{object.class.name.downcase}",:class=>'remote_put',:remote=>true,:method=>:put) %>
+	<%=  link_to get_cms_icon('led_green'), enabledisable_path,:method=>:put,:remote=>true,:id=>"#{object.id}_enabled_#{object.class.name.downcase}",:class=>'enabledisable with-tip',:title=>'Disable' %>
+<%  else  %>
+	<%#= link_to(image_tag(get_cms_icon('led_red')), enable_path,:id=>"#{object.id}_enabled_#{object.class.name.downcase}",:class=>'remote_put',:remote=>true,:method=>:put) %>
+	<%=  link_to get_cms_icon('led_red'), enabledisable_path,:method=>:put,:remote=>true,:id=>"#{object.id}_enabled_#{object.class.name.downcase}",:class=>'enabledisable with-tip',:title=>'Enable' %>
+<%   end  %>
+
+

@@ -1,0 +1,5 @@
+<% @categories.each do |category| %>
+	<li id="<%= category.dom_id %>" class="<%= cycle('odd', 'even') %>">
+		<%= render :partial => 'category', :locals=>{:category=>category} %>
+	</li>
+ <% end %>

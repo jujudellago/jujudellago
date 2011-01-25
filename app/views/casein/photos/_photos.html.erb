@@ -1,0 +1,13 @@
+<% if !@photos.blank? %>
+<ul id="photos_editor_container">
+	<% for photo in @photos %>
+	 <%= render :partial => 'photo', :locals => {:photo=>photo} %>
+  <% end %>
+</ul>
+<% else %>
+  <p>There are no photos yet</p>
+<% end %>
+
+
+
+<%= will_paginate @photos %>

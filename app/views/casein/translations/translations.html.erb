@@ -1,0 +1,69 @@
+<%- content_for :head_js do -%>
+	<%= javascript_include_merged :jquery_jqgrid %>	
+<%- end -%>
+
+
+<%page_title @locale.name %>
+<%= start_form_container %>
+<% form_tag translations_admin_translations_url do -%>
+<%= select_tag :lokale_id,    options_from_collection_for_select(Locale.all, :code, :name, @locale.code) -%>
+<%= select_tag :translation_option, "<option value='translated' #{@translation_option=="translated" ? "selected" : "" }>Translated</option><option  value='not-translated'  #{@translation_option=="not-translated" ? "selected" : "" }>Not Transalted</option>" %>
+<%= submit_tag 'Go' %>
+<% end -%>
+<%= end_form_container %>
+
+
+<%= jqgrid("Translations", "translations_admin", "/admin/translations/translations",
+	[
+		{ :field => "id", :label => "ID", :width => 35, :resizable => false },
+		{ :field => "raw_key", :label => "Raw key", :width => 225, :resizable => true , :editable => false },
+		{ :field => "default_locale_value", :label => "Default", :width => 335, :editable => false, :resizable => true },
+		{ :field => "value", :label => "value", :editable => true, :width => 335, :formoptions => { :rowpos => 1, :elmprefix => "(*)&nbsp;&nbsp" }, :editoptions => { :size => 50 } },
+		
+	],
+	{ :add => true, :edit => true, :inline_edit => true, :autowidth=>true,:delete => true, :edit_url => "/admin/translations/jqgrid",:rows_per_page => 18,:height=>'400',:extra_url_params=>"&lokale_id=#{@locale.code}&translation_option=#{@translation_option}" }
+) %>
+, 
+
+
+
+
+<%- if false -%>
+<%= start_form_container %>
+<% form_tag translations_url do -%>
+<%= select_tag :locale_id,    options_from_collection_for_select(Locale.all, :code, :name, @locale.code) -%>
+<%= select_tag :translation_option, options_from_collection_for_select(TranslationOption.all, :code, :description, @translation_option.code) -%>
+<%= submit_tag 'Go' %>
+<% end -%>
+<%= end_form_container %>
+<p>
+  Textual Translation progress: <span class="progressBar" id="translate_progress"><%= @locale.percentage_translated %></span>
+</p>
+
+
+
+<% if @translations.empty? -%>
+  <h3>No records for this criteria.</h3>
+<% end -%>
+<%= start_form_container %>
+<% for translation in @translations %>
+  <div id="<%= "translation_#{translation.class}_#{translation.id}" %>">
+  <%# remote_form_for([@locale, translation]) do |f| %>
+	<%#= admin_locale_translation_path(@locale,translation) %>
+  <% remote_form_for(:translation,translation, :url=>admin_locale_translation_path(@locale,translation),:method=>:put) do |f| %>
+	<fieldset><legend><%=h translation.default_locale_value || translation.raw_key %></legend>
+    	<div>
+  
+   <%= f.text_field :value,:size=>120 %>
+      <%= f.submit "Update" %></div>
+    </p>
+  <% end %>
+
+  </div>
+</fieldset>
+<% end %>
+<%= end_form_container %>
+<%- end -%>
+
+
+

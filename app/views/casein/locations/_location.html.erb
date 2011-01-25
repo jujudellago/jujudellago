@@ -1,0 +1,20 @@
+	<td>
+			<%= location.name %>
+</td>
+	<td>
+			<%= location.address %>
+</td>
+	<td>
+			<%= location.lat %>
+</td>
+	<td>
+			<%= location.lng %>
+</td>
+	
+			<td><%= location.created_at.to_s(:db) %></td>
+			<td><%= location.updated_at.to_s(:db) %></td>
+			<td class="table-actions">
+				<%= render :partial => '/shared/enable_disable', :locals => {:object=>location, :enabledisable_path=>enabledisable_casein_location_path(location,:enabled=>(!location.enabled))} %>
+  				<%= link_to(get_cms_icon("pencil"), casein_location_path(location),:class=>'with-tip',:title=>'Edit') %>
+				<%= link_to(get_cms_icon("cross-circle"), casein_location_path(location), :method => :delete, :confirm => "Are you sure you want to delete this location?",:class=>'with-tip',:title=>'Delete') %>
+        	</td>

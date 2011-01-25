@@ -1,0 +1,14 @@
+<div style="width:600px">
+		<%- Locale.all.each do |l| -%>
+ 			<div>
+   				<%= country_icon(l.code) %>
+					<%- tr=Translation.find_by_locale_id_and_key(l,translation.key) -%>
+					<%- val=tr.value -%>
+    				<%= val.blank? ? "non traduit" : val %>
+					<%#= val %>
+  			</div>
+		<%- end -%>
+		<br />		<br />
+		<center>
+<%= function_button(I18n.t(:ok,:default=>'ok'),"Boxy.get(this).hide();",:class=>'positive',:icon=>'accept.png') %></center>
+</div>

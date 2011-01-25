@@ -1,0 +1,18 @@
+common: &common
+  access_key_id: 1P7SYMZHVVDDE2AHW4G2
+  secret_access_key: Fcp1emAoapH7QceCUNBQnIpsHpnq6PSLquxtc2Cx
+
+development:
+  <<: *common
+  bucket: jujudellago
+
+test:
+  <<: *common
+  bucket: jujudellago-test
+
+production:
+  <<: *common
+  bucket: jujudellago-production
+
+
+

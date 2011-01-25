@@ -1,0 +1,264 @@
+/*  pages editor  */
+#pages_editor_container fieldset{
+	padding:10px;
+	width:620px;
+	margin-bottom:30px;
+	padding-bottom:20px;
+	border:1px solid #7BAAD6;
+}
+#pages_editor_container fieldset fieldset{
+		border:none;
+}
+#pages_editor_container  legend { font-weight: bold; color: #666; }
+
+.header_logo{
+	float:right;
+}
+#pages_editor_container{
+	width:100%;
+	margin-top:20px;
+	padding-left:20px;
+	/*	border:1px solid #666;*/
+}
+#pages_editor_container ul{
+	padding-left:0px;
+	line-height:25px;
+	padding-bottom:10px;
+	list-style:none;
+	width:78%;
+	border:1px solid #666666;
+}
+#pages_editor_container ol{
+	padding-left:5px;
+	line-height:12px;
+	padding-top:5px;
+	padding-bottom:10px;
+	width:100%;
+/*	border-top:1px solid #666;*/
+}
+
+#pages_editor_container ol li{
+	margin-left:20px;
+	padding-bottom:10px;
+	padding-top:10px;
+}
+#pages_editor_container ul li ol li{
+	border-bottom:medium hidden;
+	margin-left:40px;
+	padding-left:0;
+	padding-top:4px;
+	width:100%;
+
+}
+#pages_editor_container .small_infos_page, .small_infos{
+	font-size:0.8em;
+}
+#pages_editor_container ul li{
+	padding-top:10px;
+	padding-bottom:5px;
+	width:98.8%;
+	padding-left:10px;
+	border-bottom:1px solid #666;
+}
+#pages_editor_container img {
+	border:0;
+	vertical-align:middle;
+	padding-left:5px;
+}
+.pages_functions{
+/*	border:1px solid #999999;*/
+	float:right;
+	margin:0 16px 14px 15px;
+	padding:0 3px;
+	width:18%;
+
+}
+.pages_functions a{
+	width:180px;
+}
+
+
+
+
+/*sortables*/
+.sortable_container .hover {
+	background: green;
+	color: #fff;
+}
+
+.sortable_container  .placeholder {          
+	display: block;
+	border: 1px dotted #333333;
+	background-color: #cfcfcf; 
+	height: 15px;
+} 
+
+.sortable_container  .ui-tree-deptherror{
+	background-color: #ff0000;
+} 
+
+.sortable_container  .ui-tree-limiterror{
+	background-color: #00ff00;
+}
+
+.sortable_container  .hover-up {
+	background: red;
+}
+
+.sortable_container .hover-down {
+	background: red; 
+}
+ 
+.sortable_container  .item_name { 
+	border: 1px dotted black;
+}
+
+.sortable_container  li {
+	cursor:move;
+	line-height:28px;
+	padding:2px;
+
+}
+
+.images_previews img{
+	border:1px solid #ccc;
+}
+.images_previews span{
+	float:left;
+	padding:20px;
+}
+
+/* image gallery editor */
+#photos_editor_container{
+	width:100%;
+	display:block;
+    overflow: hidden;
+	list-style-type:none;
+}
+.photos_editor_box{
+	width:150px;
+	cursor:move;
+	height:180px;
+	margin:5px;
+	padding:10px;
+	float:left;
+	border:1px solid #666;
+}
+.photos_editor_box.default{
+	border:1px solid #999;
+	background:#ffe9c4;
+}
+.photos_editor_box .photo_image{
+	margin:0 auto;
+	height:120px;
+	border:1px solid #ccc;
+	background:#efefef;
+	text-align:center;
+}
+.photos_editor_box .photo_image img{
+	padding-top:10px;
+	max-width:130px;
+	max-height:100px;
+}
+.photos_editor_box .photo_legend{
+	font-size:0.8em;
+	color:#666;
+	padding:3px;
+	height:30px;
+}
+.photos_editor_box .photo_functions{
+
+}
+.photos_editor_box .photo_functions span{
+ display: block;
+    float: right;
+    padding: 3px;
+}
+.icon {
+	height: 16px;
+	width: 16px;
+	padding: 0px 9px 0px 9px;
+	display: block;
+	float: left;
+	
+}
+
+
+
+ul.directories, ul.files_browser {
+  clear:   both;
+	display: inline;
+	list-style: none;
+}
+ul.directories > li, ul.files_browser > li {
+	float:   left;
+	width:   120px;
+	height:  100px;
+	margin:  10px;
+	border:  1px solid #999;
+	background-color:  #EEE;
+	text-align:  center;
+}
+.directories .icon a {
+	background:  transparent url('/casein/images/icons/dir.png') no-repeat 50% 10px;
+	text-decoration: none;
+}
+.directories .icon a label {
+	display:     none;
+}
+.bigicon img{
+	max-width:100px;
+	max-height:75px;
+}
+.bigicon.imported img{
+	opacity:0.8;
+	border:1px solid green;
+}
+
+
+ul.files_browser > li:not(.image) .icon img {
+	margin-top:  8px;
+}
+ul.files_browser > li.image .icon img {
+	margin:  0 auto;
+	width:   100%;
+}
+
+.icon > a {
+	display:   block;
+
+	overflow:  hidden;
+}
+
+.file_infos {
+	background-color: #CCC;
+	border-top:       1px solid #999;
+	width:            auto;
+	height:           32px;
+	overflow:         hidden;
+	list-style:       none;
+	padding:          0;
+	margin:           0;
+  font-size:        11px;
+  color:            #333;
+  position:         relative;
+  text-align:       left;
+}
+ul.file_infos li {
+	margin:  0;	
+}
+.file_infos .label {
+	width: 100px;
+}
+.file_infos .delete a {
+	display:   block;
+	width:     20px;
+	height:    20px;
+	position:  absolute;
+	top:       2px;
+	right:     0;
+	text-indent: -5000px;
+	background:  transparent url('/casein/images/icons/delete.png') no-repeat;
+}
+
+

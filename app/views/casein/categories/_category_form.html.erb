@@ -1,0 +1,52 @@
+<%= f.inputs do %>
+	<%= f.input :name %>
+	<%= f.input :label_fr %>
+	<%= f.input :label_en %>
+<%- end -%>
+
+<% f.buttons do %>
+  <%= f.commit_button %>
+<% end %>
+
+
+
+
+
+
+
+
+<%- if false -%>
+
+<% if @category.parent_id>0  || @category.new_record?%>
+	<div><label>Parent</label>
+	<%= tree_select(Category.find(:all, :conditions => "parent_id = 0",:order=>'position, name'), 'category', 'parent_id', @category) %></div>
+<%- else -%>
+	<%- if current_user.is_god? -%>
+		<p><%= "Category settings will apply to all child categories" %></p>
+		<%= f.check_box :use_file %>
+		<%= f.check_box :use_partners %>
+		<%= f.check_box :use_intro %>
+		<%= f.check_box :all_langs %>
+		<%= f.check_box :use_sub_title %>
+		<%= f.check_box :sort_by_alternate_date %>
+	<%- end -%>
+<% end %>
+
+
+
+  <%= form.inputs "Post details", :title, :body %>
+
+
+
+ <% f.inputs do %>
+      <%= f.input :title %>
+      <%= f.input :body %>
+    <% end %>
+    <% f.inputs :name => "Advanced", :id => "advanced" do %>
+      <%= f.input :created_at %>
+      <%= f.input :user_id, :label => "Author" %>
+    <% end %>
+    <% f.inputs "Extra" do %>
+      <%= f.input :update_at %>
+    <% end %>
+<%- end -%>

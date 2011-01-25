@@ -1,0 +1,24 @@
+<div id="smart_edit_form_<%= @translation.id %>">
+<div style="width:700px"><p><strong>Traduction pour</strong><br /> <%= @translation.raw_key %></p></div>
+<%= start_form_container %>
+	<% form_remote_tag(:url=>smart_update_admin_translation_url(@translation),:html=>{:id=>'tr_form',:method=>:put}) do  %>
+	<%= hidden_field_tag :key, @translation.key %>
+		<%- Locale.all.each do |l| -%>
+ 			<div>
+   				<%= country_icon(l.code) %>
+				<%- tr=Translation.find_by_locale_id_and_key(l,@translation.key) -%>
+				<%- if tr.nil? -%>
+					<%- val= ""  
+						I18nUtil.create_translation(l, @translation.raw_key, @translation.pluralization_index, nil)
+					-%>
+				<%- else -%>
+					<%-  val=tr.value -%>
+				<%- end -%>
+    			<%= text_field_tag "value[#{l.id}]", val ,:size=>100%>
+  			</div>
+		<%- end -%><center>
+		<%= submit_button(I18n.t(:submit)) %>
+		<%= function_button(I18n.t(:cancel),"Boxy.get(this).hide();",:class=>'negative',:icon=>'cancel.png') %></center>
+	<%- end -%>
+<%= end_form_container %>
+</div>

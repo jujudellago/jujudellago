@@ -1,0 +1,24 @@
+PATH
+  remote: .
+  specs:
+    s3 (0.3.8)
+      proxies (~> 0.2.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    mocha (0.9.10)
+      rake
+    proxies (0.2.1)
+    rake (0.8.7)
+    test-unit (2.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (>= 1.0.0)
+  mocha (= 0.9.10)
+  proxies (~> 0.2.0)
+  s3!
+  test-unit (>= 2.0)

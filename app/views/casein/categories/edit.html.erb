@@ -1,0 +1,7 @@
+<% page_title "Edition de la Categorie :"+" "+@category.name%>
+<div class="form-container">
+
+<%= semantic_form_for @category, :url => casein_category_path do |f| %>		
+	<%= render :partial=>'category_form', :locals=>{:f=>f} %>
+<% end %>
+</div>

@@ -1,0 +1,11 @@
+rm app/controllers/casein/projects_controller.rb
+rm app/views/casein/projects/index.html.erb
+rm app/views/casein/projects/index.js.erb
+rm app/views/casein/projects/enabledisable.js.erb
+rm app/views/casein/projects/show.html.erb
+rm app/views/casein/projects/new.html.erb
+rm app/views/casein/projects/_project_form.html.erb
+rm db/migrate/*create_projects*
+rm app/views/casein/projects/_projects.html.erb
+rm app/views/casein/projects/_project.html.erb
+rm app/models/project.rb

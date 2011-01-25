@@ -1,0 +1,51 @@
+<%#- field_set_tag I18n.t(:basic_informations) do -%>
+<%= f.inputs do %>
+	<%#= f.collection_select :category_id, Category.all, :id, :formatted_name, {:include_blank => true}, {:class=>"validate-selection",:title=>"required"} %>
+	<%= f.input :category %>
+	<%= f.input :title_fr %>
+	<%#= f.text_field :title_fr, :size => 30, :label=>I18n.t(:title,:default=>"Titre fr"),:class=>'required',:title=>'required' %>
+	<%#= f.text_field :title_en, :size => 30, :label=>I18n.t(:title,:default=>"Titre en"),:class=>'required',:title=>'required' %>
+	<%= f.input :title_en %>
+	<%- if params[:action]=="edit" && @article.published-%>
+		<%= f.input :published_at, :as=>:string ,:input_html => {:size=>30,:label=>'Date de publication', :value => f.object.published_at.to_s(:db),:class=>'datepicker' }%>
+	<%- end -%>
+	<%= f.input :alternate_date, :as=>:string ,:input_html => {:size=>30,:label=>'Date alternative', :value => f.object.alternate_date.to_s(:db),:class=>'datepicker' } %>
+	<%= f.input :tag_list	 %>
+<%- end -%>
+
+
+
+<%= f.inputs do %>
+
+<%= f.input :intro_fr,:input_html => { :rows=>5,:cols=>60 } %>
+
+<%= f.input :intro_en, :input_html => {:rows=>5,:cols=>60} %>
+<%= f.input :body_fr,:input_html => {:cols=>80,:rows=>10} %>
+<%= f.input :body_en,:input_html => {:cols=>80,:rows=>10 }%>
+
+<%- end -%>
+
+
+<%= f.inputs do %>
+  	<%= f.input :icon,:label=>'icon' %>
+
+
+
+	<%- if @article.icon &&  !@article.icon.url.blank?  -%>
+ 	<div><label><%= I18n.t(:current_image) %></label>	<%= image_tag(@article.icon.url(:small)) %></div>
+	<%- end -%>
+<%- end -%>
+
+<%= f.inputs do %>
+	<%= f.commit_button %>
+<%- end -%>
+
+<%#= textile_editor_initialize('simple') -%>
+<%- content_for :head_js do -%>
+
+<%#= mark_it_up ['#article_intro_fr_input','#article_intro_en_input','#article_body_fr_input','#article_body_en_input'],"textileSettings" %>
+<%= mark_it_up '#article_intro_fr',"textileSettings" %>
+
+
+<%- end -%>
+

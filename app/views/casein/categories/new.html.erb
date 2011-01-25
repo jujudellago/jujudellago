@@ -1,0 +1,24 @@
+<% @page_title="Create a New Category" %>
+
+<div class="form-container">
+
+<%#= error_messages_for :category %>
+<%# yabo_form_for(@category, :url => casein_categories_path, :html => { :id=>'category_form'}) do |f| -%>
+	<%#- field_set_tag do -%>
+	
+<%= semantic_form_for @category, :url => casein_categories_path do |f| %>		
+	<%= render :partial=>'category_form', :locals=>{:f=>f} %>
+
+<div class="buttonrow">
+    <%#= submit_button "Create" ,:class=>'positive' %>
+ 	<%#= cancel_button(@category,{:path=>casein_categories_url}) %>
+</div>
+<%#- end -%>
+<% end %>
+</div>
+
+
+
+
+
+<%# end %>

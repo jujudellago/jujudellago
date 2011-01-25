@@ -1,0 +1,52 @@
+class Video < ActiveRecord::Base
+  require 'youtube_it'
+  before_save :get_datas
+  validates_presence_of :source_url, :message => "can't be blank"
+  
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
+
+
+   def get_datas
+     tnurl="/images/no-image.jpg"
+     if self.source_url.match(/(youtube.com*)/)
+       vid=self.source_url.match(/=([A-Za-z0-9]*)/) ? self.source_url.match(/=([A-Za-z0-9\d_\-]*)/)[0].gsub(/=/,'') : self.source_url
+       unless vid.nil?
+         youtube_data=YouTubeIt::Client.new(:dev_key => YOUTUBE_API_KEY ).video_by(vid)
+         self.title= self.title.blank? ? youtube_data.title : self.title
+         self.description= self.description.blank? ? youtube_data.description  : self.description
+         tnurl=youtube_data.thumbnails[0].url
+         self.media_content_url=youtube_data.media_content[0].url
+        end
+        self.provider="youtube"
+     elsif self.source_url.match(/(vimeo.com*)/)
+       tnurl='/images/icons/video/vimeo.jpg' 
+
+
+       #self.media_content_url="/videos/#{self.id}"
+
+       vid=self.source_url.match(/vimeo.com\/([^&]+)/)[1]
+       self.media_content_url="http://www.vimeo.com/moogaloop.swf?clip_id=#{vid}&amp;server=www.vimeo.com&amp;fullscreen=1&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color="
+       self.provider="vimeo"
+    elsif self.source_url.match(/(dailymotion.com*)/)
+       self.provider="dailymotion"      
+    elsif self.source_url.match(/(myspace.com*)/)
+       self.provider="myspace"      
+    end
+
+     self.thumbnail_url=tnurl
+       
+       
+    end
+end
+
+
+
+

@@ -1,0 +1,33 @@
+<!-- NOTE: the casein:scaffold generator automatically appends new controllers to this file. The SCAFFOLD_INSERT line must NOT be removed -->
+
+
+
+<li class="home <%= current_class?("dashboard") %>"><%= link_to "admin", casein_config_dashboard_url %></li>
+<li class="medias <%= current_class?(["gallery_types","galleries","videos"]) %>">
+	<%= link_to "Medias", "#" %>
+	<ul>
+		<li><%= link_to "Gallery types", casein_gallery_types_path %></li>
+		<li><%= link_to "Galleries", casein_galleries_path %></li>
+		<li ><%= link_to "Videos", casein_videos_path %></li>
+		<li><%= link_to "Locations", casein_locations_path %></li>
+	</ul>
+</li>
+<li class="write <%= current_class?(["articles","categories"]) %>">
+	<%= link_to "Articles", "#" %>
+	<ul>
+		<li class="<%= current_class?("articles") %>"><%= link_to "Articles", casein_articles_path %></li>
+		<li class="<%= current_class?("categories") %>"><%= link_to "Categories", casein_categories_path %></li>
+	</ul>
+</li>
+<li  class="settings <%= current_class?("translations") %>">
+	<%= link_to "Settings", "#" %>
+	<ul>
+		<li><%= link_to "Translations", casein_translations_path %></li>
+	</ul>
+</li>
+<li class="stats">
+<!-- SCAFFOLD_INSERT -->
+
+
+
+</li>

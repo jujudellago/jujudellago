@@ -1,0 +1,13 @@
+<% page_title "Categories"%>	
+
+<div id ="pages_editor_container">
+	
+<div class="pages_functions"> 
+	<%= new_button Category.new, :path=>new_casein_category_path %>	
+</div>
+<ul id="pages_list" >
+<%= render :partial =>'categories_list' %>
+</ul>
+</div>
+
+

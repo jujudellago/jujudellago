@@ -1,0 +1,36 @@
+<strong><%= category.label %> </strong>
+<span class="edit_icons">
+<%= link_to(image_tag(get_cms_icon('pencil'), :alt=>'edit'[:edit]), edit_casein_category_path(category)	 )%>
+
+
+
+
+<%= list_destroy_button(casein_category_path(category),true,"category: #{category.label}") %>
+<% 
+pos_style=""
+if category.children.size<2
+	pos_style="display:none"
+end	
+%>
+<% if category.parent_id==0 %>
+<span id="small_info_<%= category.dom_id %>" class="small_infos">
+	[use intro<%= yes_no_icon(category.use_intro) %>          ]&nbsp;&nbsp;&nbsp;
+	[sort_by_alternate_date <%= yes_no_icon(category.sort_by_alternate_date) %>          ]	                                                          
+</span>
+
+</span>
+<%- end -%>
+
+<div id="new_category_<%= category.dom_id %>"></div> 
+<ol id="sub_<%= category.dom_id %>">
+<% if category.children.size>0 %>
+	<% category.children.each do |child| %>
+	<li id="<%= child.dom_id %>">
+		<%= render :partial=>'category', :locals=>{:category=>child} %>
+	</li>
+	<% end -%>
+<% end %>
+</ol>
+
+
+

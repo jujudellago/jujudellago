@@ -1,0 +1,66 @@
+<% page_title "Articles"
+ %>	
+<div  class="casein_filter">
+<%- field_set_tag do -%>
+<% form_tag(:url=>'/casein/articles',:method=>'get',:remote=>true, :html=>{:id=>'articles_list_form',:class=>'inline_form'})  do %>
+<div class="form-container">
+<table class="casein_search_form">
+<tr>
+	<td><label>Namesearch:</label></td>
+	<td>
+		<%= text_field_tag :article_search, params[:article_search], :size => 60 , :class=>"text" %>       
+	</td>
+</tr>
+<tr>
+	<td><label>Publié:</label></td>
+	<td>
+		peu importe <%= radio_button_tag :published, "2",true %>    &nbsp;&nbsp;&nbsp;&nbsp;
+		non <%= radio_button_tag :published, "0",false %>    &nbsp;&nbsp;&nbsp;&nbsp;
+		oui <%= radio_button_tag :published,"1", false %>      
+	</td>
+</tr>
+<tr>
+	<td valign="top"><label>Categories:</label></td>
+	<td>
+
+		<%- Category.all_parents.each do |parent| -%>	
+			<h4 class="separator"><%= parent.name %> <%= check_box_tag("categories[]",parent.id ) %></h4>
+			<%- if @my_categories.include?(parent.id) -%>
+				<% for category in @my_categories[parent.id]-%>
+					<span><%=  category.parent_id==0 ? "<br /><strong>" : "" %> <%= category.name %>&nbsp;<%= check_box_tag("categories[]",category.id ) %> <%=  category.parent_id==0 ? "</strong>" : "" %></span>
+				<% end %>
+			<% end %>	
+		<% end %>			
+		</div>
+	</td>
+</tr>
+<tr>
+	<td valign="top" colspan="2">
+		
+		<h4 class="separator"></h4>
+		<label>Par page:</label><% options=%w(10 20 50 100)  %>
+	<%=  select("list", "per_page", options, { :include_blank => false, :selected=>@per_page.to_s }) %>
+		&nbsp;<em>Ordrer par:</em><% options=%w(created_at updated_at title author )  %>
+		<%=  select("list", "order_by", options, { :include_blank => false, :selected=>@order_by }) %>
+		&nbsp;<em>Asc/desc:</em><% options=%w(desc asc )  %>
+		<%=  select("list", "asc_desc", options, { :include_blank => false, :selected=>@asc_desc }) %>
+		</td>
+	<td>
+	</td>
+</tr>
+</table>
+	<h4 class="separator"></h4>
+<div class="buttonrow"><%= submit_button "Search" ,{:class=>'positive', :name=>nil,:icon=>'zoom.png'} %></div>
+</div>
+<% end %>
+<%- end -%></div>
+<div id="articles_table">
+<%= render :partial => '/casein/articles/articles_list' %>
+</div>   
+
+	
+
+<%= content_for :control_bar do %>
+	<%= link_to( "New article", new_casein_article_path,:class=>'button_link').html_safe %>
+<%- end -%>
+

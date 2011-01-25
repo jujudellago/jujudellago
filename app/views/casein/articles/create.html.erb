@@ -1,0 +1,11 @@
+<% @page_title="Create Article" %>
+<%#= error_messages_for :article %>
+
+<div class="form-container">
+<% yabo_form_for @article,
+            :url => casein_articles_url, 
+            :html => { :method => :post } do |f| -%>
+    <%= render :partial => '/admin/articles/article_form', :locals => {:f => f} -%>
+  <%= submit_tag 'Save' %> or <%= link_to 'cancel', casein_articles_url %>
+<% end -%>
+</div>

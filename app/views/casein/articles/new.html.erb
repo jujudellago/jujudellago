@@ -1,0 +1,17 @@
+<% @page_title="Create Article" %>
+<div class="form-container">
+<%#= error_messages_for :article %>
+
+<%#form_for([:admin,:category,:article]) do |f| %>
+<%# form_for(@category,@article) do |f|%>
+<%= semantic_form_for @article, :url => casein_articles_url do |f| %>	
+	<%= render :partial => '/casein/articles/article_form', :locals => {:f => f} -%>
+<% end -%>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+.controls-buttons{
+	clear: both;
+	font-size: 12px;
+	color: #5F5F5F;
+	padding-left:20%;
+}
+.controls-buttons{
+	list-style-type:none;
+}
+.controls-buttons li{
+	float:left;
+}
+.controls-buttons a{
+	background: #transparent url(/images/box-bgr.gif) repeat-x scroll 0 100%;
+	border: 1px solid #CFCFCF;
+	color: #efefef;
+	margin-left: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+}
+
+.controls-buttons a:hover {
+	background: #33707E;
+	color: #fff;
+}
+.controls-buttons a.current {
+	background: #666;
+	color: #fff;
+}
+.controls-buttons .pages {
+	float: right;
+}
+

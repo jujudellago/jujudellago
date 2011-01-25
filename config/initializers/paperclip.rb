@@ -1,0 +1,2 @@
+#Paperclip::Attachment.default_options[:convert_options] = { :all => '-strip -colorspace RGB -resample 72'}
+Paperclip::Attachment.default_options[:convert_options] = { :all => '-strip -colorspace RGB'}
