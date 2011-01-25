@@ -16,7 +16,7 @@
 <% end %>
 
 <%= content_for :head_js do %>
-<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= GeoKit::Geocoders::google %>" ></script>
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= GOOGLEMAPS_API_KEY %>" ></script>
 
 <script type="text/javascript" >
 function initialize() { 

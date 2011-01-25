@@ -8,7 +8,6 @@ public/cache/**/*
 index/*
 public/tests/*
 vendor/rails/*
-config/database.yml
 public/javascripts/*packaged*
 public/stylesheets/*packaged*
 db/schema.rb

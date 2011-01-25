@@ -13,6 +13,7 @@ server_development:
   recaptcha_public_key: 6Ldq9AkAAAAAAHcQWpPpX45Ao5003Pzza5x8CrDh  #sangsom
   recaptcha_private_key_key: 6Ldq9AkAAAAAABr0TLGQWJSu1WPLHOK-3Vct-ziN #sangsom
   youtube_api_key: AI39si702hc5ggQ2X14tc1aVOe8IeA6USipeYnHt8tjG6OqK3RluUvdI8CPmbJ1-qgvxGTuqRuzTV4RVFoTZRulIuEn8acSYuw
+  googlemaps_api_key: ABQIAAAAdESqGsxfpcQpbabkex2gyxTJQa0g3IQ9GZqIMmInSLzwtGDKaBSyyvG8z9lQ6MrR-Lwc3-pcegPltg
   
 server_test:
   site_name: Jujudellago
@@ -26,18 +27,18 @@ server_test:
   description: Designed to test the new Jujudellago platform
 server_production:
   site_name: Jujudellago
-  site_url: www.Jujudellago.org
+  site_url: jujudell.yabo-sites.com
   company_name: Jujudellago
-  admin_email: info@Jujudellago.org
+  admin_email: info@Jujudellago.com
   support_name: Jujudellago
-  support_email: info@Jujudellago.org
+  support_email: info@Jujudellago.com
   tagline: testing site
   keywords: ""
   description: ""
   recaptcha_public_key: 6LeFZAkAAAAAAIcjIyrDR6ylWsdduSpNNaG6m_Rw
   recaptcha_private_key_key: 6LeFZAkAAAAAACozNtqb1GoznPwk2QFNCFywqLWg
-    
-    
+  youtube_api_key: AI39si7TwKxw4dlxIhU0iqo9IsokW70fy3112iulYYSkqRQPTjc2HUY2u9lP5JuuMJvVTGuFRiwTVPHE7BA76FfzoM25TBt8wA
+  googlemaps_api_key: ABQIAAAAdESqGsxfpcQpbabkex2gyxQjw1QxrPZ2vYI0SFuRMVCeP1d29RRd1TtMm_EqXA6NXtQU4U_LvUS4Cw    
 #   
 # Congratulations, julienramel, your application is now registered! Yeah!
 #
