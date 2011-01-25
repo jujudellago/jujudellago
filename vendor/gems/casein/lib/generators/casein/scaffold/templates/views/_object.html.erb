@@ -1,0 +1,12 @@
+	<% attributes.each do |attribute| %><td>
+		<%- if (attribute=="title" || attribute=="name" || attribute=="title_fr" ||  attribute=="title_en" || attribute=="name_en" || attribute=="name_fr") -%><%%= link_to(<%= singular_name %>.<%= attribute.name %>, casein_<%= singular_name %>_path(<%= singular_name %>)) %>
+		<%- else -%><%%= <%= singular_name %>.<%= attribute.name %> %>
+		<%- end -%></td>
+	<% end %>
+			<td><%%= <%= singular_name %>.created_at.to_s(:db) %></td>
+			<td><%%= <%= singular_name %>.updated_at.to_s(:db) %></td>
+			<td class="table-actions">
+				<%%= render :partial => '/shared/enable_disable', :locals => {:object=><%= singular_name %>, :enabledisable_path=>enabledisable_casein_<%= singular_name %>_path(<%= singular_name %>,:enabled=>(!<%= singular_name %>.enabled))} %>
+  				<%%= link_to(get_cms_icon("pencil"), casein_<%= singular_name %>_path(<%= singular_name %>),:class=>'with-tip',:title=>'Edit') %>
+				<%%= link_to(get_cms_icon("cross-circle"), casein_<%= singular_name %>_path(<%= singular_name %>), :method => :delete, :confirm => "Are you sure you want to delete this <%= singular_name %>?",:class=>'with-tip',:title=>'Delete') %>
+        	</td>

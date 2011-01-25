@@ -7,7 +7,7 @@ role :app, "jujudell@174.122.37.162"
 role :db,  "jujudell@174.122.37.162", :primary => true
 
 
-
+default_run_options[:pty] = true 
 
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
