@@ -12,3 +12,5 @@ public/javascripts/*packaged*
 public/stylesheets/*packaged*
 db/schema.rb
 public/cache/*
+config/database.yml
+config/yc_config.yml
