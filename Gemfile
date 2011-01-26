@@ -13,9 +13,13 @@ gem 'capistrano-ext'
 gem 'rmagick'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'tiny_mce'
-#gem 'i18n-active_record', :path=>'vendor/gems/i18n-active_record'
-gem 'i18n-active_record',  :git => 'git://github.com/svenfuchs/i18n-active_record.git',   :require => 'i18n/active_record'
-gem 'acts-as-tree-with-dotted-ids', :git=>'git://github.com/tma/acts-as-tree-with-dotted-ids.git'
+gem 'i18n-active_record', :path=>'vendor/gems/i18n-active_record',   :require => 'i18n/active_record'
+gem 'acts-as-tree-with-dotted-ids', :path=>'vendor/gems/acts-as-tree-with-dotted-ids'
+
+#gem 'i18n-active_record',  :git => 'git://github.com/svenfuchs/i18n-active_record.git',   :require => 'i18n/active_record'
+#gem 'acts-as-tree-with-dotted-ids', :git=>'git://github.com/tma/acts-as-tree-with-dotted-ids.git'
+
+
 gem 'formtastic', '1.1.0'
 gem 'acts_as_indexed'
 gem 'RedCloth'
