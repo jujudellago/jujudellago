@@ -61,7 +61,7 @@ after 'deploy:update_code', :link_frozen_rails
 desc "symlink shared ruby gems to vendor directory"
 task :link_frozen_rails, :roles => [:app] do
   run <<-EOF
-     ln -s #{shared_path}/ruby #{latest_release}/vendor/  ; cp #{shared_path}/.htaccess #{latest_release}/public/
+     ln -s #{shared_path}/ruby #{latest_release}/vendor/  ; cp #{shared_path}/.htaccess #{latest_release}/public/ ; cp   #{shared_path}/config/* #{latest_release}/config/
   EOF
 end
 #
