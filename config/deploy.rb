@@ -57,13 +57,13 @@ task :dump_db, :roles => [:app] do
 end
 
 
-#after 'deploy:update_code', :link_frozen_rails
-#desc "symlink shared rails to vendor directory"
-#task :link_frozen_rails, :roles => [:app] do
-#  run <<-EOF
-#     ln -s #{shared_path}/rails #{latest_release}/vendor/
-#  EOF
-#end
+after 'deploy:update_code', :link_frozen_rails
+desc "symlink shared ruby gems to vendor directory"
+task :link_frozen_rails, :roles => [:app] do
+  run <<-EOF
+     ln -s #{shared_path}/ruby #{latest_release}/vendor/  ; cp #{shared_path}/.htaccess #{latest_release}/public/
+  EOF
+end
 #
 #after 'deploy:update_code', :update_yc_config
 #desc "copy yc_config to current dir"
