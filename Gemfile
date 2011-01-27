@@ -1,11 +1,15 @@
-source 'http://rubygems.org'
+source "http://gems.rubyforge.org"
+
+#source 'http://rubygems.org'
+
 
 gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', :path =>'vendor/ruby/1.8/gems/mysql2-0.2.6'
+gem 'mysql'
+gem 'mysql2', :require => 'mysql'
 gem 'casein', :path => "vendor/gems/casein"
 
 gem 'capistrano'
@@ -22,7 +26,7 @@ gem 'acts-as-tree-with-dotted-ids', :path=>'vendor/gems/acts-as-tree-with-dotted
 
 gem 'formtastic', '1.1.0'
 gem 'acts_as_indexed'
-gem 'RedCloth'
+#gem 'RedCloth' , :require=>'redcloth'
 gem 'youtube_it'
 gem 'i18n-js'
 gem "geokit"
