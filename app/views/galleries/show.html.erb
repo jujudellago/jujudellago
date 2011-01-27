@@ -10,6 +10,47 @@
 <% end %>
 </div>
 <%#= will_paginate @photos %>
+
+<%= content_for :sidebar do %>
+	<%= mytextilize(@gallery.description).html_safe %>
+	<div id="map" style="width:250px;height:240px;float:right"></div>
+<%- end -%>
+
+
+
+<%- if @gallery.location -%>
+
+		<%= content_for :head_js do %>
+		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= GOOGLEMAPS_API_KEY %>" ></script>
+		
+		<script type="text/javascript" >
+		function initialize() { 
+			if (GBrowserIsCompatible()) {
+		   	 var map = new GMap2(document.getElementById("map")); 
+		   	 var latlng=new GLatLng(<%=@gallery.location.lat%>, <%=@gallery.location.lng%>);
+			 var content="<span style='width:180px'><h4><%= @gallery.location.name %></h4><p style='width:180px'><%= @gallery.location.address %></p></span>";
+			var icon = new GIcon();
+		                icon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
+		                icon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+		                icon.iconSize = new GSize(12, 20);
+		                icon.shadowSize = new GSize(22, 20);
+		                icon.iconAnchor = new GPoint(6, 20);
+		                icon.infoWindowAnchor = new GPoint(5, 1)
+		   	 map.setCenter(latlng,13); 
+		   	 map.addControl(new GLargeMapControl());
+		   	 var marker = new GMarker(latlng,icon); 
+		   	 map.addOverlay(marker);
+		     map.enableDoubleClickZoom();
+		     map.enableScrollWheelZoom();
+			 marker.openInfoWindowHtml(content);
+			}
+		}
+		window.onload=initialize; window.onunload=GUnload;
+		
+		</script>
+		<%- end -%>
+<%- end -%>
+
 <% else %>
   
 <% end %>

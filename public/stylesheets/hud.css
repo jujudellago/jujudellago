@@ -23,8 +23,9 @@
 
 /* -----BODY STUFF----- */
 body {
-	background-color: #111; 
-	background-image: url(/images/backgrounds/starfield-white.jpg);
+	background-color: #1e1e1e; 
+/*	background-image: url(/images/backgrounds/starfield-white.jpg);*/
+	
 	height:auto; 
 	width:auto; 
 	font-family:'Arial', Sans-Serif; 
@@ -90,7 +91,7 @@ h6 a:hover {text-decoration:underline;}
 	top: 50%; 
 	border:1px solid #ccc; 
 	background: #151515; 
-	z-index: 2000; 
+	z-index: 20000000; 
 	padding: 70px 40px 40px; 
 	display: none; 
 	color: #fff;
@@ -439,11 +440,13 @@ input[type="submit"]:hover {background: #222 url(/images/nav_bg.png) repeat-x to
 code {font:1.1em 'Courier New', Courier, Fixed;}
 acronym,abbr,span.caps {font-size:.9em;letter-spacing:.07em;cursor:help;}
 p img {max-width:100%;}
-img.centered {display:block;margin:0 auto;}
+img.centered {display:block;margin:0 auto; text-align: center;}
+div.centered  {display:block;width:100%;}
+div.centered span {display:block;margin:0 auto;}
 img.alignright {display:inline;margin:0 0 10px 10px;}
 img.alignleft {display:inline;margin:0 10px 10px 0;}
-.alignright {float:right;}
-.alignleft {float:left;}
+.alignright , .flr {float:right;}
+.alignleft, .fll {float:left;}
 acronym.abbr {border-bottom:1px dashed #999;}
 blockquote {padding-left:20px;margin:15px;}
 blockquote cite {display:block;margin:5px 0 0;}
@@ -455,6 +458,8 @@ img#wpstats {width:0;height:0;border:none;overflow:hidden;}
 .hidden {visibility: hidden; display: none;}
 .rssSummary {padding-bottom:15px;}
 .clear {clear: both;}
+span.ttip_header{font-size:1.1em;font-weight:bold;clear:both; width:100px;display:block;}
+span.ttip_content{font-size:0.9em;font-weight:normal;clear:both; width:100px;display:block;}
 p.clear {height:1px; width:1px; }
 .hide {display: none;} 
 small {font-size: .7em;}
@@ -581,3 +586,25 @@ small {font-size: .7em;}
 }
 .jScrollPaneDragTop { position: absolute; top: 0; left: 0; overflow: hidden; }
 .jScrollPaneDragBottom { position: absolute; bottom: 0; left: 0; overflow: hidden; }
+
+
+/* video player */
+ul.videos_nav {
+	list-style-type:none;
+}
+ul.videos_nav li{
+	list-style-type:none;
+	float:left;
+	width:70px;
+}
+.videos_nav div.video_box img{
+	width:100px;
+}
+.videos_nav div.video_box{
+	width:110px;
+	height:110px;
+	float:left;
+	border:1px solid #666;
+	padding:3px;
+	margin:3px;
+}

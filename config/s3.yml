@@ -12,7 +12,7 @@ test:
 
 production:
   <<: *common
-  bucket: jujudellago-production
+  bucket: jujudellago
 
 
 

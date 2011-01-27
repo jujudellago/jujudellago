@@ -26,7 +26,7 @@ gem 'acts-as-tree-with-dotted-ids', :path=>'vendor/gems/acts-as-tree-with-dotted
 
 gem 'formtastic', '1.1.0'
 gem 'acts_as_indexed'
-#gem 'RedCloth' , :require=>'redcloth'
+gem 'RedCloth' 
 gem 'youtube_it'
 gem 'i18n-js'
 gem "geokit"

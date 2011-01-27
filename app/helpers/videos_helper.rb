@@ -1,5 +1,7 @@
 module VideosHelper
   def video_embed_code(video, options={})
+    return "NO VIDEO" if video.nil? 
+    return "no source" unless video.source_url
     options[:width]  ||= "640"
     options[:height] ||= "420"
     options[:big] ||=false
@@ -10,6 +12,8 @@ module VideosHelper
 
 
     case video.source_url
+    when nil
+      return "Error - no source url"
     when /youtube/
       #video.source_url =~ /v=([^&]+)/
       #id = $1

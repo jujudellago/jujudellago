@@ -14,3 +14,9 @@ db/schema.rb
 public/cache/*
 config/database.yml
 config/yc_config.yml
+tmp/manips.rb
+vendor/bundle/ruby/*
+vendor/cache/*
+vendor/ruby/*
+db/base_site.sql
+

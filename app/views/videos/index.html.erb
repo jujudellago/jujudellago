@@ -1,6 +1,16 @@
-<%- @videos.each do |video| %>
-	<%= video_embed_code(video,{:html5=>true}).html_safe %><br />
-	<%= video.source_url %>
-	<hr />
+
+<!-- <div class="centered">
+	<span><%#= video_embed_code(@random_video,{:html5=>true,:width=>530}).html_safe %></span>
+</div> -->
+<div id="video_code">
+	<%= render :partial=>'video_code',:locals=>{:video=>@video} %>
+</div>
+
+
+<%#= will_paginate(@videos) %>
+
+<%= content_for :sidebar do -%>
+<div id="videos_nav" class="videos_nav">
+<%= render :partial=>'videos_nav' %>
+</div>
 <%- end -%>
-<%= will_paginate(@videos) %>

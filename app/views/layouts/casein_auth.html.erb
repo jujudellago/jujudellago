@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Jujudellago</title>
+	<meta charset="utf-8">
+			<%= csrf_meta_tag %>
+			<%= stylesheet_link_merged(:login ).html_safe %>
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+			<%= javascript_include_tag('html5').html_safe  %>
+			<%= javascript_include_merged(:login).html_safe  %>
+			<script type="text/javascript" charset="utf-8">
+				toggleDiv = function(div)
+				{
+					switch ($("#"+div).css('display'))
+					{
+						case "none":
+							$("#"+div).fadeIn(300);
+						break;
+
+						case "block":
+							$("#"+div).fadeOut(300);
+						break;
+					}	
+				}
+			</script>
+</head>
+
+<!-- the 'special-page' class is only an identifier for scripts -->
+<body class="special-page login-bg dark">
+<!-- The template uses conditional comments to add wrappers div for ie8 and ie7 - just add .ie, .ie7 or .ie6 prefix to your css selectors when needed -->
+<!--[if lt IE 9]><div class="ie"><![endif]-->
+<!--[if lt IE 8]><div class="ie7"><![endif]-->
+
+<%= stylised_error_message %>
+	
+	<section id="login-block">
+		<div class="block-border"><div class="block-content">
+		 	<%= yield %>
+		</div></div>
+	</section>
+
+<!--[if lt IE 8]></div><![endif]-->
+<!--[if lt IE 9]></div><![endif]-->
+</body>
+</html>

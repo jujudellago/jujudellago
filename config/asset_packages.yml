@@ -8,9 +8,15 @@ javascripts:
   - jquery.easing.1.3
   - jquery.innerfade
   - mousewheel
+  - rails
   - jquery-ui-1.5.2
   - hud
   - application
+- login:
+  - old-browsers
+  - common
+  - standard
+  - jquery.tip	
 - constellation:
   - html5
   - old-browsers
@@ -37,10 +43,18 @@ stylesheets:
   - pagination
   - hs
   - gmaps
+- login:
+  - reset
+  - common
+  - login
+  - form
+  - standard
+  - special-pages
 - constellation:
   - reset
   - common
   - form
+  - html5
   - standard
   - 960.gs.fluid
   - simple-lists

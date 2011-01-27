@@ -4,6 +4,25 @@ class Video < ActiveRecord::Base
   validates_presence_of :source_url, :message => "can't be blank"
   
 
+
+
+  def next
+      v= self.class.find :first, :conditions => ["id > ?",self.id], :order => "id DESC"
+      v= self.class.first if v.nil?
+      return v
+    end
+
+    def previous
+      v= self.class.find :first, :conditions => ["id < ?",self.id],:order => "id DESC"
+      v= self.class.last if v.nil?
+      return v
+    end
+
+
+    def self.random_id
+      self.find(rand(self.count)).id      
+    end
+
   def self.search(search)
     if search
       where('title LIKE ?', "%#{search}%")
@@ -11,7 +30,15 @@ class Video < ActiveRecord::Base
       scoped
     end
   end
+  
+  def ttip
+#    "<span class='big'>#{title}</span><hr /><strong>#{artist}</strong><i>#{year}</i><br />#{description}"
+    "<span class='ttip_header'>#{title}</span><span class='ttip_content'>#{artist} :: #{year}</span>" #"<span class='ttip_content'>#{description}</span>"
+  end
 
+  # def self.random
+  #   self.where(rand(self.count))
+  # end
 
 
    def get_datas

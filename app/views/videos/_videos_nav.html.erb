@@ -1,0 +1,19 @@
+
+<%- @videos.each do |video| %>
+	<div class="video_box"><!-- <strong><%= video.title %></strong> -->	
+	<%= link_to(image_tag(video.thumbnail_url),video_path(video.id),:remote=>true,:class=>'tooltip',:title=>video.ttip) %>
+	</div>
+<%- end -%>
+<%#= will_paginate(@videos) %>
+
+<%-
+ 	prev_url=videos_url(:page=>@videos.current_page-1) 
+	next_url=videos_url(:page=>@videos.current_page+1) 
+ %>
+<div class="clear"></div>
+<div class="fll">
+		<%= @videos.current_page>1 ? link_to("&larr;&nbsp;".html_safe+'Previous',prev_url,:remote=>true).html_safe : "&nbsp;".html_safe   %>
+</div>
+<div class="flr">
+	<%= @videos.current_page<@videos.total_pages ? link_to("&rarr;&nbsp;".html_safe+'Next',next_url,:remote=>true).html_safe : "&nbsp;".html_safe  %></span>
+</div>

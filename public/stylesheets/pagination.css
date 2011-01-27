@@ -4,7 +4,8 @@
 	color: #5F5F5F;
 	padding-left:20%;
 }
-.controls-buttons{
+.controls-buttons, .controls-buttons ul , .controls-buttons ul li,
+#sidebar ul li.widget ul.controls-buttons li{
 	list-style-type:none;
 }
 .controls-buttons li{

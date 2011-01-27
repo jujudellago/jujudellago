@@ -1,0 +1,8 @@
+<span class="fll"><%= video_embed_code(video,{:html5=>true}).html_safe %></span>
+<span class="flr">
+	<ul class="video_functions">
+		<li><%= link_to "next", video_url(video.next.id.to_s),:remote=>true %></li>
+		<li><%= link_to "previous", video_url(video.previous.id.to_s),:remote=>true %></li>
+		<li><%= link_to "random", video_url(Video.random_id.to_s),:remote=>true %></li>
+	</ul>
+</span>
