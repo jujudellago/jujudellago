@@ -2,7 +2,7 @@
  * Older browsers detection
  */
  
-(function($)
+;(function($)
 {
 	// Change these values to fit your needs
 	if (

@@ -29,7 +29,7 @@
  * @param {Object} down
  * @param {Object} preventDefault
  */
-jQuery.fn.extend({
+;jQuery.fn.extend({
 	mousewheel: function(up, down, preventDefault) {
 		return this.hover(
 			function() {

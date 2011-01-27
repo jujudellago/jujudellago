@@ -95,4 +95,4 @@ function removeFilter(element) {
 	if(element.style.removeAttribute){
 		element.style.removeAttribute('filter');
 	}
-}
+};

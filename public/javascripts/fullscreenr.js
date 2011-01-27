@@ -4,7 +4,7 @@
 * Version 1.0
 * www.nanotux.com
 **/
-(function($){	
+;(function($){	
 	$.fn.fullscreenr = function(options) {
 		if(options.height === undefined) alert('Please supply the background image height, default values will now be used. These may be very inaccurate.');
 		if(options.width === undefined) alert('Please supply the background image width, default values will now be used. These may be very inaccurate.');

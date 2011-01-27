@@ -1,33 +1,10 @@
 --- 
 javascripts: 
-- base: 
-  - standard
-  - standard.ie
-  - searchField
-  - rails
-  - old-browsers
-  - mobile
-  - list
-  - jquery_jgrowl_minimized
-  - jquery_fancybox
-  - jquery.tip
-  - jquery.modal
-  - jquery.min
-  - jquery
-  - jquery.hashchange
-  - jquery.dataTables.min
-  - jquery.contextMenu
-  - jquery.accessibleList
-  - jquery-1.4.2.min
-  - html5
-  - common
-  - application
 - hud:
   - css_globe_tooltip
-  - jquery.colorbox-min
+  - jquery.colorbox
   - fullscreenr
   - hoverintent
-  - jquery_lazyload/jquery.lazyload
   - jquery.easing.1.3
   - jquery.innerfade
   - mousewheel
@@ -54,14 +31,6 @@ javascripts:
   - forms
   - admin
 stylesheets: 
-- base: 
-  - formtastic
-  - formtastic_changes
-  - jquery_fancybox
-  - jquery_jgrowl
-  - popup_packaged
-  - silky_buttons
-  - yabo-cms
 - hud:
   - hud
   - colorbox
