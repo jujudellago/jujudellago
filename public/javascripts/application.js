@@ -11,7 +11,7 @@
 		return false;
 	});		
 	
-	$('.video_functions a').click(function(){
+	$('.video_functions a , .video_box a').live("click",function(){
         $('#video_code').block({ message: "<span class='loading'><img id='loadingGif' src='/images/ajax-loader.gif' alt='loading' /></span>" }); 
     });
 
