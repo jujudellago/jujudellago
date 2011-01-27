@@ -1,8 +1,1 @@
-<%#= debug @video%>
-//alert("I'm not crazy !!!<%=@video.source_url%>");
 $('#video_code').html("<%= escape_javascript(   render :partial=>'video_code',:locals=>{:video=>@video} )%>");
-<%#if @video.nil? %>
-//alert('Error loading video')
-<%#else%>
-//$('#video_code').html("<%#= escape_javascript(   render :partial=>'video_code',:locals=>{:video=>@video} )%>");
-<%#end%>

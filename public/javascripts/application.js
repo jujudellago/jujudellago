@@ -1,5 +1,5 @@
 ;$(document).ready(function(){
-
+	$.blockUI.defaults.css = {};
 	
 	$(".data_link").click(function(){
 		//alert("toto");
@@ -10,6 +10,10 @@
 		}
 		return false;
 	});		
+	
+	$('.video_functions a').click(function(){
+        $('#video_code').block({ message: "<span class='loading'><img id='loadingGif' src='/images/ajax-loader.gif' alt='loading' /></span>" }); 
+    });
 
   //  $("img").lazyload({ 
   //      // placeholder : "/javascripts/jquery_lazyload/img/grey.gif",

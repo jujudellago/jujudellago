@@ -7,7 +7,7 @@ class Video < ActiveRecord::Base
 
 
   def next
-      v= self.class.find :first, :conditions => ["id > ?",self.id], :order => "id DESC"
+      v= self.class.find :first, :conditions => ["id > ?",self.id], :order => "id ASC"
       v= self.class.first if v.nil?
       return v
     end

@@ -608,3 +608,11 @@ ul.videos_nav li{
 	padding:3px;
 	margin:3px;
 }
+#video_code{
+	height: 420px;
+  	position: relative;
+  	width: 740px;
+}
+#video_code span.loading{
+	margin:0 auto;
+}
