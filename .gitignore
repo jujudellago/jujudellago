@@ -19,4 +19,4 @@ vendor/bundle/ruby/*
 vendor/cache/*
 vendor/ruby/*
 db/base_site.sql
-
+Gemfile.lock 
