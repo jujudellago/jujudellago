@@ -66,6 +66,15 @@ module Casein
       flash[:notice] = 'Gallery has been deleted'
       redirect_to casein_galleries_path
     end
+    def flush
+       @gallery = Gallery.find params[:id]
+       if @gallery.photos.destroy_all
+         flash[:notice] = 'All pictures have been destroyed'
+      else
+        flash[:error] = "Pictures couldn't be destroyed"
+      end
+      respond_with @gallery
+    end
     
     
       def enabledisable

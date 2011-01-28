@@ -225,7 +225,10 @@ namespace :yabo do
      gallery=Gallery.find(gallery_id)
      photo_names=gallery.photos.map(&:image_file_name)
      strpath="#{Rails.root}/public#{import_folder}"
-     Dir.new(strpath).entries.each do |e| 
+     
+     lst=Dir.new(strpath).entries.sort
+     
+     lst.each do |e| 
        if e.ends_with?(".jpg")
           f=File.join(strpath,e)
          

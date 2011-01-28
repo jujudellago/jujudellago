@@ -13,7 +13,7 @@
 <%= link_to "#{casein_show_icon "add"}Add a new photo".html_safe, new_casein_gallery_photo_path(@gallery),:class=>'button_link' %>
 <%= link_to "#{casein_show_icon "add"} import uploaded photos".html_safe, import_casein_gallery_photos_path(@gallery) ,:class=>'button_link'%>
 
-	<%= link_to( "Back to gallery", casein_gallery_path(@gallery),:class=>'button_link').html_safe %>
+	<%= link_to( "Back to galleries", casein_galleries_path,:class=>'button_link').html_safe %>
 <%- end -%>
 
 <% content_for :head_js do %>

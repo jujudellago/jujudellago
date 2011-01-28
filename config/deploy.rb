@@ -52,8 +52,8 @@ end
 
 desc "export all db content"
 task :dump_db, :roles => [:app] do
-  fn="export_all_#{Time.now.strftime("%d.%m.%Y")}.sql"
-  run("cd /home/jujudell/backups/mysql;   mysqldump  -c  jujudell_jujudellago_prod -u user71 -p89qis9tk -h 77.95.121.153 --default-character-set=utf8 > #{fn}")
+  fn="export_all_jujudell_#{Time.now.strftime("%d.%m.%Y")}.sql"
+  run("cd /home/jujudell/backups/mysql;   mysqldump  -c  jujudell_jujudellago_prod -u jujudell_yabonew -pkristina  --default-character-set=utf8 > #{fn}")
 end
 
 

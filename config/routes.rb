@@ -20,6 +20,7 @@ Casein::Application.routes.draw do
 		resources :galleries do 
 			member do 
 					 put 'enabledisable'
+					 put 'flush'
 			end
 	  end
 		resources :locations do 

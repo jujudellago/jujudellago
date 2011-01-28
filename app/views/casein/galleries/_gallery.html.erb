@@ -7,7 +7,7 @@
 </td>
 	<td><%= link_to "(#{gallery.photos_count}) edit", casein_gallery_photos_path(gallery) %></td>
 	<td><%= link_to image_tag(gallery.default_photo.image.url(:tiny)) ,casein_gallery_photos_path(gallery) unless gallery.default_photo.nil? %></td>
-
+	<td><%= link_to("delete all pictures", flush_casein_gallery_path(gallery), :method => :put, :confirm => "Are you sure you want to delete all the pictures in this gallery?",:class=>'with-tip',:title=>'Delete all pictures',:remote=>true) %></td>
 
 	
 			<td><%= gallery.created_at.to_s(:db) %></td>
