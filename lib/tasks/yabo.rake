@@ -214,7 +214,12 @@ namespace :yabo do
   
    
    
-   
+   desc 'FLush images from a gallery'
+   task :flush_pictures  => :environment do
+      gallery_id=ENV["GALLERY_ID"]
+      gallery=Gallery.find(gallery_id)
+      gallery.photos.destroy_all
+    end
    
    
    desc 'import pictures in a given gallery'

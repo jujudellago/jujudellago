@@ -68,12 +68,9 @@ module Casein
     end
     def flush
        @gallery = Gallery.find params[:id]
-       if @gallery.photos.destroy_all
-         flash[:notice] = 'All pictures have been destroyed'
-      else
-        flash[:error] = "Pictures couldn't be destroyed"
-      end
-      respond_with @gallery
+        call_rake "yabo:flush_pictures", { :gallery_id=>@gallery.id.to_s}
+        flash[:notice] = 'All pictures are being destroyed (will take a little while)'
+        respond_with @gallery
     end
     
     
