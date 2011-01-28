@@ -33,7 +33,7 @@ class Video < ActiveRecord::Base
   
   def ttip
 #    "<span class='big'>#{title}</span><hr /><strong>#{artist}</strong><i>#{year}</i><br />#{description}"
-    "<span class='ttip_header'>#{title}</span><span class='ttip_content'>#{artist} :: #{year}</span>" #"<span class='ttip_content'>#{description}</span>"
+    "<span class='ttip_header'>#{title}</span><span class='ttip_content'>#{artist} :: #{year}</span><span class='ttip_content'>#{provider}</span>"
   end
 
   # def self.random
@@ -54,18 +54,28 @@ class Video < ActiveRecord::Base
         end
         self.provider="youtube"
      elsif self.source_url.match(/(vimeo.com*)/)
-       tnurl='/images/icons/video/vimeo.jpg' 
-
+        tnurl='/images/video/vimeo.png' 
+        vid=self.source_url.match(/vimeo.com\/([^&]+)/)[1]
+        unless vid.nil?
+          vimeo_data=Vimeo::Simple::Video.info(vid)
+          if vimeo_data && vimeo_data.size>0
+            tnurl=vimeo_data[0]["thumbnail_medium"]
+            self.title= self.title.blank? ? vimeo_data[0]["title"] : self.title
+            self.description= self.description.blank? ? vimeo_data[0]["description"] : self.description
+          end
+        end
 
        #self.media_content_url="/videos/#{self.id}"
 
-       vid=self.source_url.match(/vimeo.com\/([^&]+)/)[1]
+
        self.media_content_url="http://www.vimeo.com/moogaloop.swf?clip_id=#{vid}&amp;server=www.vimeo.com&amp;fullscreen=1&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color="
        self.provider="vimeo"
     elsif self.source_url.match(/(dailymotion.com*)/)
        self.provider="dailymotion"      
+       tnurl='/images/video/dailymotion.png' 
     elsif self.source_url.match(/(myspace.com*)/)
        self.provider="myspace"      
+        tnurl='/images/video/myspace.png' 
     end
 
      self.thumbnail_url=tnurl

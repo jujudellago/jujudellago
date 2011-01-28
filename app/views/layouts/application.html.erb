@@ -9,7 +9,7 @@
 
 <body class="strd <%= @extra_body_class %>">
 <!--Uncomment for fullscreen background images. Don't forget image URL below-->
-<img id="bgimg" src="/images/bg/dark_gradient.jpg" />
+<span class="centered"><img id="bgimg" src="/images/bg/dark_gradient.jpg" /></span>
 
 <div id="formbackground"></div>
 
@@ -26,7 +26,8 @@
 	<!-- <div id="searchOpen" class="metaButton"><img src="images/search-trans.png" alt="" height="10" width="13" /> &nbsp;<span>SEARCH</span></div> -->
 
 	<!--SITE NAME-->
-	<h1 id="logo"><a href="/">Jujudellago</a></h1><!--end logo--> 
+	<!-- <h1 id="logo"><a href="/">Jujudellago</a></h1> --><!--end logo--> 
+	<%= content_tag(:div,link_to(image_tag("/images/banners/jujudellago_photoreports_200.png"),root_path),:id=>'logo_container') %>
 	
 </div><!--end topBanner-->
 

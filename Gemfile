@@ -23,7 +23,7 @@ gem 'acts-as-tree-with-dotted-ids', :path=>'vendor/gems/acts-as-tree-with-dotted
 #gem 'i18n-active_record',  :git => 'git://github.com/svenfuchs/i18n-active_record.git',   :require => 'i18n/active_record'
 #gem 'acts-as-tree-with-dotted-ids', :git=>'git://github.com/tma/acts-as-tree-with-dotted-ids.git'
 
-
+gem "vimeo"
 gem 'formtastic', '1.1.0'
 gem 'acts_as_indexed'
 gem 'RedCloth' 
