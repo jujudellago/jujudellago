@@ -55,7 +55,6 @@ stylesheets:
   - reset
   - common
   - form
-  - html5
   - standard
   - 960.gs.fluid
   - simple-lists
