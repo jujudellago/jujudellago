@@ -66,7 +66,7 @@ task :link_frozen_rails, :roles => [:app] do
       cp #{shared_path}/.htaccess #{latest_release}/public/ ; 
       cp   #{shared_path}/config/* #{latest_release}/config/ ; 
       cp   #{shared_path}/Gemfile.lock #{latest_release}/ ;
-      bundle install --path vendor/bundle
+      cd #{latest_release}/ ; bundle install --path vendor/bundle
   EOF
 end
 # ln -s #{shared_path}/ruby #{latest_release}/vendor/  ;
