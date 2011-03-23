@@ -14,12 +14,12 @@ class Photo < ActiveRecord::Base
           :thumb=> "160x",
           :large => "900x600",
           :small  => "220x160#"},
-      :path => ":rails_root/public/galleries/:attachment/:id/:style/:basename.:extension",
-      :url => "/galleries/:attachment/:id/:style/:basename.:extension"
-   #  :storage => :s3,
-   #  :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),
-   #  :url => ':s3_domain_url',
-   #  :path => "galleries/:attachment/:id/:style/:basename.:extension"
+    # :path => ":rails_root/public/galleries/:attachment/:id/:style/:basename.:extension",
+    # :url => "/galleries/:attachment/:id/:style/:basename.:extension"
+     :storage => :s3,
+     :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),
+     :url => ':s3_domain_url',
+     :path => "galleries/:attachment/:id/:style/:basename.:extension"
     
       
 
