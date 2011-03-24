@@ -1,5 +1,5 @@
 .gmap_legend{width:200px;}
-#map{
+#map, #map_container{
 	width:290px;
 	height:240px;
 	margin-top:20px;

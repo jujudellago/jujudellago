@@ -65,10 +65,15 @@ task :link_frozen_rails, :roles => [:app] do
       ln -s #{shared_path}/ruby #{latest_release}/vendor/bundle/ruby  ; 
       cp #{shared_path}/.htaccess #{latest_release}/public/ ; 
       cp   #{shared_path}/config/* #{latest_release}/config/ ; 
-      cp   #{shared_path}/Gemfile.lock #{latest_release}/ ;
-      cd #{latest_release}/ ; bundle install --path vendor/bundle
+      cp   #{shared_path}/Gemfile.lock #{latest_release}/ ; 
+      cd #{latest_release}/ ; bundle update rack ;  bundle install --path vendor/bundle
   EOF
 end
+#       cp   #{shared_path}/Gemfile.lock #{latest_release}/ ; 
+#       cd #{latest_release}/ ;  bundle install --path vendor/bundle
+# bundle install --path vendor/bundle
+
+
 # ln -s #{shared_path}/ruby #{latest_release}/vendor/  ;
 #
 #

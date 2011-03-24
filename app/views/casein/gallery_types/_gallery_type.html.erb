@@ -1,0 +1,16 @@
+	<td>
+<%= link_to gallery_type.name,casein_gallery_type_path(gallery_type),:class=>'with-tip',:title=>gallery_type.cached_slug %>
+</td>
+	<td>
+<%= gallery_type.label_fr %>
+</td>
+	<td>
+<%= gallery_type.label_en %>
+</td>
+	
+			<td><%= gallery_type.created_at.to_s(:db) %></td>
+			<td><%= gallery_type.updated_at.to_s(:db) %></td>
+			<td class="table-actions">
+  				<%= link_to(get_cms_icon("pencil"), casein_gallery_type_path(gallery_type),:class=>'with-tip',:title=>'Edit') %>
+				<%= link_to(get_cms_icon("cross-circle"), casein_gallery_type_path(gallery_type), :method => :delete, :confirm => "Are you sure you want to delete this gallery_type?",:class=>'with-tip',:title=>'Delete') %>
+        	</td>

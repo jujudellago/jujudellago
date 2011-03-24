@@ -1,4 +1,5 @@
 <%- @extra_body_class="category category-gallery" -%>
+<%= content_for :bgimg do -%><%= @gallery.default_photo.image.url %><%- end %>
 <%- title @gallery.label -%>
 <span class="date_infos"><%=  I18n.l(@gallery.event_date,:format=>"%e %B %Y") %></span>
 <% if !@photos.blank? %>
@@ -17,50 +18,21 @@
 	<h3><%= @gallery.label %></h3>
 	<p><strong><%= I18n.l(@gallery.event_date,:format=>"%e %B %Y")  %></strong></p>
 	<%= mytextilize(@gallery.description).html_safe %>
-	<div id="map"></div>
-	
-
-	<%= Gallery.next_galleries(@gallery).each do |gallery| %>
-	<p>	<%= gallery.label %></p>
-		<!-- <p><%= link_to(gallery.label,gallery_type_gallery_path(gallery.gallery_type,gallery)) %></p> -->
-	<%- end -%>
+	<%#= google_map(@gallery.location.long_label,@gallery.location.lat,@gallery.location.lng) %>
+	<div id="map">
+		  <%= link_to(image_tag( "http://maps.google.com/maps/api/staticmap?center=#{@gallery.location.lat},#{@gallery.location.lng}&zoom=12&size=290x240&markers=color:red%7Ccolor:red%7Clabel:C%7C#{@gallery.location.lat},#{@gallery.location.lng}&sensor=false",:id=>'static_image'),"http://maps.google.ch/maps?q=#{@gallery.location.long_label.cleanup_html}",:rel=>'external') %>
+		
+		
+	</div>
+	<div class="clear"></div>
+	<h3><%= I18n.t(:next) %></h3>
+	<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>@next} %>
+	<h3><%= I18n.t(:previous) %></h3>
+	<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>@previous} %>
 	
 <%- end -%>
 
 
-
-<%- if @gallery.location -%>
-
-		<%= content_for :head_js do %>
-		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= GOOGLEMAPS_API_KEY %>" ></script>
-		
-		<script type="text/javascript" >
-		function initialize() { 
-			if (GBrowserIsCompatible()) {
-		   	 var map = new GMap2(document.getElementById("map")); 
-		   	 var latlng=new GLatLng(<%=@gallery.location.lat%>, <%=@gallery.location.lng%>);
-			 var content="<span style='width:100px'><h4><%= @gallery.location.name %></h4><p style='width:100px'><%= @gallery.location.address %></p></span>";
-			var icon = new GIcon();
-		                icon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
-		                icon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
-		                icon.iconSize = new GSize(12, 20);
-		                icon.shadowSize = new GSize(22, 20);
-		             //   icon.iconAnchor = new GPoint(6, 20);
-		             //   icon.infoWindowAnchor = new GPoint(5, 1)
-		   	 map.setCenter(latlng,12); 
-		   	 map.addControl(new GLargeMapControl());
-		   	 var marker = new GMarker(latlng,icon); 
-		   	 map.addOverlay(marker);
-		     map.enableDoubleClickZoom();
-		     map.enableScrollWheelZoom();
-			 //marker.openInfoWindowHtml(content);
-			}
-		}
-		window.onload=initialize; window.onunload=GUnload;
-		
-		</script>
-		<%- end -%>
-<%- end -%>
 
 <% else %>
   

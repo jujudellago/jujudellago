@@ -9,6 +9,21 @@ class Gallery < ActiveRecord::Base
 
   has_friendly_id :name, :use_slug => true  
 
+
+  def next
+      v= self.class.find :first, :conditions => ["id > ?",self.id], :order => "id ASC"
+      v= self.class.first if v.nil?
+      return v
+    end
+
+    def previous
+      v= self.class.find :first, :conditions => ["id < ?",self.id],:order => "id DESC"
+      v= self.class.last if v.nil?
+      return v
+    end
+
+
+
   def self.next_galleries(gallery)
     where("event_date > ? and enabled=?", gallery.event_date,true).order('event_date').limit(5).all
   end 

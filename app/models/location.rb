@@ -5,7 +5,10 @@ class Location < ActiveRecord::Base
   acts_as_mappable 
   before_validation_on_create :geocode_address
 
-
+  def long_label
+    "#{self.name} <br />#{self.address}".html_safe
+    
+  end
 
   def self.search(search)
     if search

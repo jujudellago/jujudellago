@@ -6,6 +6,10 @@ class GalleriesController < ApplicationController
 
   def show
     @gallery=@gallery_type.galleries.find(params[:id])
+    
+    @next=@gallery.next
+    @previous=@gallery.previous
+    
     #@photos=@gallery.photos.paginate :order=>'created_at', :page => params[:page],:per_page=>9
     @photos=@gallery.photos.all :order=>'created_at'
   end

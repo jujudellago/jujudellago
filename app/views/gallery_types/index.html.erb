@@ -5,7 +5,7 @@
 		<h2><%= link_to gallery_type.name, gallery_type_galleries_path(gallery_type) %></h2>
 		<%- gallery_type.galleries.all(:order=>:created_at,:limit=>3).each do |gallery| %>
 			<div class="post">
-				<h2 class="posttitle"><%= link_to(gallery.label,gallery_type_gallery_path(gallery_type,gallery)) %></h2>
+				<h3 class="posttitle"><%= link_to(gallery.label,gallery_type_gallery_path(gallery_type,gallery)) %></h3>
 				<%- if gallery.default_photo -%>
 					<a class="thumb" href="<%= gallery_type_gallery_path(gallery_type,gallery) %>">
 						<%= image_tag(gallery.default_photo.image.url(:small)) %>

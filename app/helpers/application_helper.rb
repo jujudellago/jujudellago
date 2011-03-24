@@ -29,6 +29,11 @@ module ApplicationHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
   
+  def background_image(img) 
+    src=img.blank? ? "/images/bg/dark_gradient.jpg" : img
+    return content_tag(:span,image_tag(src,:id=>'bgimg')).html_safe    
+  end
+  
 end
 
 

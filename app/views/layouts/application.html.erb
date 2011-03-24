@@ -9,7 +9,7 @@
 
 <body class="strd <%= @extra_body_class %>">
 <!--Uncomment for fullscreen background images. Don't forget image URL below-->
-<span class="centered"><img id="bgimg" src="/images/bg/dark_gradient.jpg" /></span>
+
 
 <div id="formbackground"></div>
 
@@ -180,8 +180,9 @@
 <%= javascript_include_merged(:hud).html_safe  %>
 <%= yield :head_js %>
 <!--UNCOMMENT IF USING FULLSCREEN BACKGROUND. Don't forget image width and height below if different-->
-<!--
-<script src="javascripts/fullscreenr.js" type="text/javascript"></script>-->
+<!---->
+<%= background_image(yield :bgimg) %>
+<script src="javascripts/fullscreenr.js" type="text/javascript"></script>
 <script type="text/javascript">  
 var FullscreenrOptions = {  width: 1200, height: 700, bgID: '#bgimg' };
 jQuery.fn.fullscreenr(FullscreenrOptions);

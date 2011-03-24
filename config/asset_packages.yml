@@ -43,6 +43,7 @@ stylesheets:
   - colorbox
   - pagination
   - hs
+  - overlays
   - gmaps
 - login:
   - reset

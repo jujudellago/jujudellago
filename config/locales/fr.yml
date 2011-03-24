@@ -4,3 +4,5 @@ fr:
     month_names: [~, Janvier, Février, Mars, Avril, May, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Jan, Fev, Mar, Avr, Mai, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
   view_pictures: "Voir les photos"
+  next: Suivant
+  previous: Précédent

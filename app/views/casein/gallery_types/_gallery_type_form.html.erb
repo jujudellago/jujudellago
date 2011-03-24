@@ -1,0 +1,20 @@
+<%= f.inputs do %>
+
+	<%= f.input :name  %>
+
+	<%= f.input :label_fr  %>
+
+	<%= f.input :label_en  %>
+	
+<%- end -%>
+
+<%= f.inputs do %>
+	<%= f.input :description_fr  %>
+	<%= f.input :description_en  %>
+<%- end -%>
+
+<% f.buttons do %>
+  <%= f.commit_button %>
+<% end %>
+
+
