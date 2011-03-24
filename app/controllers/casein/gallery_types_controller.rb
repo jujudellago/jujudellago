@@ -2,23 +2,34 @@
 
 module Casein
   class GalleryTypesController < Casein::CaseinController
-      layout 'constellation'
+  
     ## optional filters for defining usage according to Casein::Users access_levels
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
+    layout 'constellation'    
+    respond_to :html,:js,:xml
+    helper_method :sort_column, :sort_direction
+  
+  
+  
   
     def index
-      @casein_page_title = 'Gallery types'
-  		@gallery_types = GalleryType.paginate :page => params[:page]
+      per_page=params[:per_page]||=10
+  		@gallery_types = GalleryType.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page =>per_page, :page => params[:page])
+  		respond_with(@gallery_types)
     end
+
+
+    
+    
   
     def show
-      @casein_page_title = 'View gallery type'
+      
       @gallery_type = GalleryType.find params[:id]
     end
  
     def new
-      @casein_page_title = 'Add a new gallery type'
+      
     	@gallery_type = GalleryType.new
     end
 
@@ -35,7 +46,7 @@ module Casein
     end
   
     def update
-      @casein_page_title = 'Update gallery type'
+      
       
       @gallery_type = GalleryType.find params[:id]
     
@@ -55,6 +66,37 @@ module Casein
       flash[:notice] = 'Gallery type has been deleted'
       redirect_to casein_gallery_types_path
     end
+    
+    
+      def enabledisable
+        @gallery_type = GalleryType.find params[:id]
+        enbl=params[:enabled]
+
+        if @gallery_type.update_attribute(:enabled,enbl )
+          if enbl
+            message = "@gallery_type published, it is visible now"          
+          else
+            message = "@gallery_type un-published, it is hidden now"
+          end
+        else
+          message = "There was a problem setting enabled status this @gallery_type."
+        end
+        flash[:notice] = message
+      	respond_with(@gallery_type)
+      end
+  
+     private
+
+        def sort_column
+          GalleryType.column_names.include?(params[:sort]) ? params[:sort] : "name"
+        end
+
+        def sort_direction
+          %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+        end
+  
+  
+  
   
   end
 end

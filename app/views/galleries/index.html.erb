@@ -1,9 +1,9 @@
 <% if !@galleries.blank? %>
-<ul>
+
   <% for gallery in @galleries %>
-	<li><%= link_to gallery.name, gallery_type_gallery_path(@gallery_type,gallery) %></li>    
+	<%= render gallery %>
   <% end %>
-</ul>
+
 <% else %>
   no galleries
 <% end %>

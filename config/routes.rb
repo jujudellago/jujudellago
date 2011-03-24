@@ -6,7 +6,11 @@ Casein::Application.routes.draw do
 
   resources :videos, :only => [:index, :show]
   match "mark_it_up/preview" => "mark_it_up#preview"
-
+  
+  #match "/photoreports" => ""
+  #match '/opencreate' => 'users#create',:as => :open_id_create,  :requirements => { :method => :get }
+    
+    
   resources :gallery_types, :only => [:index] do
     resources :galleries, :only => [:index, :show]
   end
@@ -17,6 +21,11 @@ Casein::Application.routes.draw do
 
 	#Casein routes
 	namespace :casein do
+		resources :gallery_types do 
+			member do 
+					 put 'enabledisable'
+			end
+	  end
 		resources :galleries do 
 			member do 
 					 put 'enabledisable'

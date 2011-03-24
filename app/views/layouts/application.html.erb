@@ -51,7 +51,8 @@
 
 <div id="content">
 	<div id="scrollContent">
-<%= yield %>
+    	<%= content_tag :h1, yield(:title) if show_title? %>
+		<%= yield %>
 		<div class="clear"></div>
 	</div>
 </div>

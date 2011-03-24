@@ -1,9 +1,9 @@
 	<td>
-			<%= gallery.name %>
+			<%= link_to gallery.name,casein_gallery_path(gallery) %>
 </td>
 <td><%= gallery.location.name if gallery.location %></td>
 	<td>
-			<%= gallery.description %>
+			<%= gallery.event_date.to_s %>
 </td>
 	<td><%= link_to "(#{gallery.photos_count}) edit", casein_gallery_photos_path(gallery) %></td>
 	<td><%= link_to image_tag(gallery.default_photo.image.url(:tiny)) ,casein_gallery_photos_path(gallery) unless gallery.default_photo.nil? %></td>

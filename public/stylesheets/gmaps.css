@@ -1,1 +1,8 @@
 .gmap_legend{width:200px;}
+#map{
+	width:290px;
+	height:240px;
+	margin-top:20px;
+	clear:both;
+	overflow:none;
+}

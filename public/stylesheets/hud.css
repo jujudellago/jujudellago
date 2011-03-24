@@ -330,7 +330,8 @@ div.closeNav {display: none;}
 .entry ol,.entry ul {margin:0 0 15px 25px; padding: 0; font-size: 12px;}
 .entry li {padding:0 0 0 5px; list-style-position:outside; line-height: 1.5em;}
 .entry p {margin: 0 0 15px;}
-.details {font-size: 12px;  margin-bottom: 35px;}
+.details {font-size: 12px;  margin-bottom: 30px;margin-top:5px;}
+
 
 body.category .post p {padding-top: 7px;}
 

@@ -1,4 +1,6 @@
 <%- @extra_body_class="category category-gallery" -%>
+<%- title @gallery.label -%>
+<span class="date_infos"><%=  I18n.l(@gallery.event_date,:format=>"%e %B %Y") %></span>
 <% if !@photos.blank? %>
 <div class="gallery_container">
 <% for photo in @photos %>
@@ -12,8 +14,17 @@
 <%#= will_paginate @photos %>
 
 <%= content_for :sidebar do %>
+	<h3><%= @gallery.label %></h3>
+	<p><strong><%= I18n.l(@gallery.event_date,:format=>"%e %B %Y")  %></strong></p>
 	<%= mytextilize(@gallery.description).html_safe %>
-	<div id="map" style="width:250px;height:240px;float:right"></div>
+	<div id="map"></div>
+	
+
+	<%= Gallery.next_galleries(@gallery).each do |gallery| %>
+	<p>	<%= gallery.label %></p>
+		<!-- <p><%= link_to(gallery.label,gallery_type_gallery_path(gallery.gallery_type,gallery)) %></p> -->
+	<%- end -%>
+	
 <%- end -%>
 
 
@@ -28,21 +39,21 @@
 			if (GBrowserIsCompatible()) {
 		   	 var map = new GMap2(document.getElementById("map")); 
 		   	 var latlng=new GLatLng(<%=@gallery.location.lat%>, <%=@gallery.location.lng%>);
-			 var content="<span style='width:180px'><h4><%= @gallery.location.name %></h4><p style='width:180px'><%= @gallery.location.address %></p></span>";
+			 var content="<span style='width:100px'><h4><%= @gallery.location.name %></h4><p style='width:100px'><%= @gallery.location.address %></p></span>";
 			var icon = new GIcon();
 		                icon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
 		                icon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
 		                icon.iconSize = new GSize(12, 20);
 		                icon.shadowSize = new GSize(22, 20);
-		                icon.iconAnchor = new GPoint(6, 20);
-		                icon.infoWindowAnchor = new GPoint(5, 1)
-		   	 map.setCenter(latlng,13); 
+		             //   icon.iconAnchor = new GPoint(6, 20);
+		             //   icon.infoWindowAnchor = new GPoint(5, 1)
+		   	 map.setCenter(latlng,12); 
 		   	 map.addControl(new GLargeMapControl());
 		   	 var marker = new GMarker(latlng,icon); 
 		   	 map.addOverlay(marker);
 		     map.enableDoubleClickZoom();
 		     map.enableScrollWheelZoom();
-			 marker.openInfoWindowHtml(content);
+			 //marker.openInfoWindowHtml(content);
 			}
 		}
 		window.onload=initialize; window.onunload=GUnload;

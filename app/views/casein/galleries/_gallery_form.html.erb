@@ -3,7 +3,7 @@
 	<%= f.input :name  %>
 	<%= f.input :gallery_type  %>
 	<%= f.input :location  %>
- 	<%= f.input :event_date, :as => :date_picker%>
+ 	<%= f.input :event_date, :as => :date_picker , :format=> "%Y-%m-%d"%>
 <%- end -%>
 
 <%= f.inputs do %>

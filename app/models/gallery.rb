@@ -1,14 +1,24 @@
 class Gallery < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
 
-  validates_presence_of :label_fr, :on => :create, :message => "can't be blank"
+  validates_presence_of :label_fr,:event_date
   belongs_to :gallery_type, :counter_cache => true
   belongs_to :location, :counter_cache => true
 
   translatable_columns :label, :description
 
-  has_friendly_id :label_fr, :use_slug => true  
+  has_friendly_id :name, :use_slug => true  
 
+  def self.next_galleries(gallery)
+    where("event_date > ? and enabled=?", gallery.event_date,true).order('event_date').limit(5).all
+  end 
+  def self.previous_galleries(gallery)
+    where("event_date < ? and enabled=?", gallery.event_date,true).order('event_date').limit(5).all
+  end
+
+  def date_label
+    "#{event.start_date}"    
+  end
 
   def default_photo
     return nil if self.photos_count<1
@@ -27,6 +37,13 @@ class Gallery < ActiveRecord::Base
       scoped
     end
   end  
+  def display_date
+    dt=created_at
+    unless event_date.nil?
+      dt=event_date
+    end
+    return I18n.l(dt,:format=>"%e %B %Y") 
+  end
 
   
 end

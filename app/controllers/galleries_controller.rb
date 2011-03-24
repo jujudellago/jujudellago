@@ -1,7 +1,7 @@
 class GalleriesController < ApplicationController
   before_filter :set_gallery_type
   def index
-    @galleries=@gallery_type.galleries.where('enabled=?',true)
+    @galleries=@gallery_type.galleries.where('enabled=?',true).order('event_date desc')
   end
 
   def show

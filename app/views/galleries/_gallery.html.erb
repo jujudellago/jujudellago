@@ -1,0 +1,14 @@
+	<%- lnk=gallery_type_gallery_path(gallery.gallery_type,gallery) -%>
+	<div class="post">
+		<%- if gallery.default_photo -%>
+			<a class="thumb" href="<%= lnk %>">
+				<%= image_tag(gallery.default_photo.image.url(:small)) %>
+			</a>
+		<%- end -%>
+		<h2 class="posttitle"><%= link_to(gallery.label,lnk) %></h2>
+		<small><%=  gallery.display_date %>, <%= gallery.location.name %>.</small>
+		<div class="details"><%= mytextilize(gallery.description.truncate(38)).html_safe %></div>
+		<p><%= link_to(I18n.t(:view_pictures),lnk) %></p>
+		<div class="clear"></div>
+	</div><!--end post-->
+	<div class="clear"></div>

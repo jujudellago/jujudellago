@@ -14,7 +14,7 @@ module Casein
   
   
     def index
-      per_page=params[:per_page]||=10
+      per_page=params[:per_page]||=30
   		@galleries = Gallery.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page =>per_page, :page => params[:page])
   		respond_with(@galleries)
     end
