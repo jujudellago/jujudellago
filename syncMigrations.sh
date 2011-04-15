@@ -1,0 +1,1 @@
+rsync -av db/migrate jujudell@174.122.37.162:~/apps/jujudellago/current/db/

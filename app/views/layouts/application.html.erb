@@ -127,7 +127,8 @@
 <!--CONTACT FORM-->
 <div id="contactform"  class="contact flyer">
 	<div class="close">X</div>
-	<form action="send.php" method="post" >
+ <%= form_tag(send_contact_url,:method=>'post',:remote=>true) do -%>
+	<div id="contact_form_container">
     	<h4>Send Email</h4>    
     	<p>
     		<input type="text" name="name" id="name" value="" class="input" /> 
@@ -141,11 +142,9 @@
     		<textarea name="message" id="message" class="input"></textarea>
     		<label class="smallInput" for="message">Message:</label>
     	</p>
-    	<input name="subject" id="subject" type="hidden" value="HUD Email Message" />
-    	<input name="pagelink" id="pagelink" type="hidden" value="http://www.themolitor.com/hud" />
-    	<input name="repemail" id="repemail" type="hidden" value="your.email@email.com" />
     	<input name="send" id="submit_btn" type="submit" class="button" value="Send Message" />
-    </form>
+	</div>
+<%- end -%>
 </div><!--end contact-->
 
 <!--SEARCH FORM-->
