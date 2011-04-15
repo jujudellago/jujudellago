@@ -11,6 +11,7 @@ vendor/rails/*
 public/javascripts/*packaged*
 public/stylesheets/*packaged*
 db/schema.rb
+config/environments/development.rb 
 public/cache/*
 config/database.yml
 config/yc_config.yml
