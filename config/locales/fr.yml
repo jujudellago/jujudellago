@@ -5,4 +5,15 @@ fr:
     abbr_month_names: [~, Jan, Fev, Mar, Avr, Mai, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
   view_pictures: "Voir les photos"
   next: Suivant
-  previous: Précédent
+  previous: Précédent   
+  read_more: Lire la suite
+  go_back: Retour
+  published_on: Publié le
+  current_image: image actuelle
+  photos: Photos
+  videos: Videos
+  blog: Blog
+  food: Cuisine
+  music: Musique
+  more_galleries: Plus de galeries
+  view_other_galleries_in_category: "Voir les autres galeries '%{category}'"

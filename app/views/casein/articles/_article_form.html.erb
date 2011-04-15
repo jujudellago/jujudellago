@@ -7,9 +7,11 @@
 	<%#= f.text_field :title_en, :size => 30, :label=>I18n.t(:title,:default=>"Titre en"),:class=>'required',:title=>'required' %>
 	<%= f.input :title_en %>
 	<%- if params[:action]=="edit" && @article.published-%>
-		<%= f.input :published_at, :as=>:string ,:input_html => {:size=>30,:label=>'Date de publication', :value => f.object.published_at.to_s(:db),:class=>'datepicker' }%>
+
+ 		<%= f.input :published_at, :as => :date_picker , :format=> "%Y-%m-%d"%>
+
 	<%- end -%>
-	<%= f.input :alternate_date, :as=>:string ,:input_html => {:size=>30,:label=>'Date alternative', :value => f.object.alternate_date.to_s(:db),:class=>'datepicker' } %>
+	<%= f.input :alternate_date, :as => :date_picker , :format=> "%Y-%m-%d"%>
 	<%= f.input :tag_list	 %>
 <%- end -%>
 

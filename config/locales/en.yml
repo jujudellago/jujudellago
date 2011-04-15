@@ -8,3 +8,14 @@ en:
   view_pictures: "View pictures"
   next: Next
   previous: Previous
+  read_more: Read more
+  go_back: Go back
+  published_on: Published on
+  current_image: Current image
+  photos: Photos
+  videos: Videos
+  blog: Blog
+  food: Food
+  music: Music
+  more_galleries: Plus de galleries
+  view_other_galleries_in_category: View other %{category} galleries

@@ -1,8 +1,9 @@
 class GalleryType < ActiveRecord::Base
   has_many :galleries
   validates_presence_of :name, :label_fr
-  
-    has_friendly_id :name, :use_slug => true  
+  translatable_columns :label
+    default_scope :order => 'name asc'  
+  has_friendly_id :name, :use_slug => true  
 
     def self.search(search)
       if search

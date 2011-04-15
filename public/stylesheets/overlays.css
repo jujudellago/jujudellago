@@ -235,8 +235,8 @@ ul.full_overlay , #sidebar ul.full_overlay  {
 	list-style-type:none;
 	position:relative;
 	/* Set the width and the height according to the size of your pictures */
-	width:300px;
-	height:200px;
+	width:220px;
+	height:160px;
 }
 ul.full_overlay li, #sidebar ul.full_overlay li{
 		list-style-type:none;
@@ -249,8 +249,8 @@ ul.full_overlay li, #sidebar ul.full_overlay li{
 		position: absolute;
 		left: 0px;
 		/* Set the width and the height according to the size of your pictures */
-		width: 300px;
-		height:200px;
+		width: 220px;
+		height:160px;
 		/* Set a 0 opacity to hide the content */
 		filter: alpha(opacity=0);
 		opacity: 0;

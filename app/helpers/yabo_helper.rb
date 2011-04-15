@@ -29,7 +29,7 @@ module YaboHelper
     "\n" + '//]]>' + "</script>"
   end
   def back_link
-    content_tag("span","#{link_to I18n.t(:go_back), :back}",:class=>'back_link')
+    content_tag("span","#{link_to I18n.t(:go_back), :back}".html_safe,:class=>'back_link').html_safe
   end
 
   def pluralize_no_number(count, singular, plural = nil)
@@ -301,10 +301,9 @@ module YaboHelper
     def remove_button(link,label="")
       link_to_remote(image_tag(get_cms_icon('delete'), :alt=>'add')+label, :url =>  link,:method=>:put)
     end
-    def get_cms_icon(icon)
-      image_tag("/images/icons/fugue/#{icon}.png").html_safe      
+    def get_cms_icon(icon, options={})
+      image_tag("/images/icons/fugue/#{icon}.png", options).html_safe      
     end
-
 
     def make_table_headers(collection,headers,options = {})
  
@@ -444,7 +443,7 @@ module YaboHelper
     end
     
     def yes_no_icon(bol)
-       bol ?  image_tag("/images/icons/tick.png") : image_tag("/images/icons/cross.png")   
+       bol ?  image_tag("/images/icons/fugue/tick.png").html_safe : image_tag("/images/icons/fugue/cross.png").html_safe   
     end
     def visible_icon(bol,tip="")
         if tip.blank?

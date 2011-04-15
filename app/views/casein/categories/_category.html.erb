@@ -1,9 +1,7 @@
 <strong><%= category.label %> </strong>
 <span class="edit_icons">
-<%= link_to(image_tag(get_cms_icon('pencil'), :alt=>'edit'[:edit]), edit_casein_category_path(category)	 )%>
-
-
-
+	 <%= link_to(get_cms_icon("pencil"), edit_casein_category_path(category),:class=>'with-tip',:title=>'Edit') %>
+	<em>(<%= category.cached_slug %>)</em>
 
 <%= list_destroy_button(casein_category_path(category),true,"category: #{category.label}") %>
 <% 

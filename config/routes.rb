@@ -4,20 +4,26 @@ Casein::Application.routes.draw do
 
 
 
-  resources :videos, :only => [:index, :show]
-  match "mark_it_up/preview" => "mark_it_up#preview"
+  scope "(:locale)", :locale => /en|fr/ do
+    resources :videos, :only => [:index, :show]
+    match "mark_it_up/preview" => "mark_it_up#preview"
   
   #match "/photoreports" => ""
   #match '/opencreate' => 'users#create',:as => :open_id_create,  :requirements => { :method => :get }
     
+   
+   
     
-  resources :gallery_types, :only => [:index] do
-    resources :galleries, :only => [:index, :show]
+   resources :categories,  :only => [:index] do
+      resources :articles, :only => [:index, :show]
+    end
+
+
+
+    resources :photography, :controller=> :gallery_types,  :only => [:index] do
+      resources :galleries, :only => [:index, :show]
+    end
   end
-  
-
-
-
 
 	#Casein routes
 	namespace :casein do

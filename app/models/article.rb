@@ -15,17 +15,17 @@ class Article < ActiveRecord::Base
   acts_as_indexed :fields =>[:intro_fr, :body_fr,:intro_en,:body_en]
    
 
-  
+    translatable_columns :title, :intro, :body
   
   # Paperclip
     # http://www.thoughtbot.com/projects/paperclip
     has_attached_file :icon,
 #    :path => ":rails_root/public/galleries/:attachment/:id/:style/:basename.:extension",
     :styles => {
-           :icon =>'64x64>',
-           :small => "144x144>",
-           :medium => "230x230>",
-           :large => "340x340>"},
+           :tiny =>'64x64>',
+           :thumb=> "160x",
+           :small  => "220x160#",
+           :large => "600x600>"},
      :storage => :s3,
      :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),
       :url => ':s3_domain_url',
@@ -37,12 +37,8 @@ class Article < ActiveRecord::Base
     validates_attachment_size :icon, :less_than => 5.megabytes
     validates_attachment_content_type :icon, :content_type => ['image/jpeg','image/jpg', 'image/png', 'image/gif']
 
-  
-  
-  
-  
-  
-  
+
+ 
   
   
 

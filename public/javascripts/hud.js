@@ -138,7 +138,7 @@ function sizes() {
 		//FOR THE SCROLL BAR SPACE
 		jQuery("body.category-gallery #content,body.category-portfolio #content").addClass("small");
 		jQuery("body.category-gallery .gallery_container .post,body.category-portfolio .post").addClass("smallPost");
-		jQuery("body.category-gallery .gallery_container .post:nth-child(3n),body.category-portfolio .post:nth-child(3n)").addClass("smallThird");
+		jQuery("body.category-gallery .gallery_container .year_sep .post:nth-child(3n), body.category-portfolio .year_sep .post:nth-child(3n)").addClass("smallThird");
 		jQuery('#scrollContent').jScrollPane();
 	} else {
 		jQuery("#content").css({"marginTop": -content});

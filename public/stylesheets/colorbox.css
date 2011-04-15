@@ -25,7 +25,7 @@
         #cboxLoadedContent{background:#000; padding:5px;}
         #cboxTitle{position:absolute; top:-20px; left:0; color:#ccc;}
         #cboxCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
-        #cboxSlideshow{position:absolute; top:-20px; right:120px; color:#fff;}
+        #cboxSlideshow{position:absolute; top:-20px; right:160px; color:#fff;}
         #cboxPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(/images/colorbox/controls.png) no-repeat top left; width:28px; height:65px; text-indent:-9999px;}
         #cboxPrevious.hover{background-position:bottom left;}
         #cboxNext{position:absolute; top:50%; right:5px; margin-top:-32px; background:url(/images/colorbox/controls.png) no-repeat top right; width:28px; height:65px; text-indent:-9999px;}

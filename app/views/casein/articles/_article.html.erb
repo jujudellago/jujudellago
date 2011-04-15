@@ -6,7 +6,7 @@
 	<%= article.category.formatted_name %>
 </td>
 <td>
-	<%= image_tag(article.icon.url(:icon)) unless article.icon.url.blank? %>
+	<%= image_tag(article.icon.url(:tiny)) unless article.icon.url.blank? %>
 </td>
 
 
@@ -14,11 +14,8 @@
 <td><%= render :partial => '/shared/enable_disable', :locals => {:object=>article, :enabledisable_path=>enabledisable_casein_article_path(article,:enabled=>(!article.published))} %>
 </td>
 <td>
-	<%= list_edit_button(edit_casein_article_path(article),"") %>
+	 <%= link_to(get_cms_icon("pencil"), edit_casein_article_path(article),:class=>'with-tip',:title=>'Edit') %>
 </td>
 <td>
 <%= list_destroy_button(casein_article_path(article),true,"article: #{article.title_fr}") %>
 </td>
-
-
-

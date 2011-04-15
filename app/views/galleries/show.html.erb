@@ -19,6 +19,9 @@
 	<p><strong><%= I18n.l(@gallery.event_date,:format=>"%e %B %Y")  %></strong></p>
 	<%= mytextilize(@gallery.description).html_safe %>
 	<%#= google_map(@gallery.location.long_label,@gallery.location.lat,@gallery.location.lng) %>
+	<hr />
+	<%= content_tag :h3, @gallery.location.name %>
+	<%= content_tag :p, @gallery.location.address %>
 	<div id="map">
 		  <%= link_to(image_tag( "http://maps.google.com/maps/api/staticmap?center=#{@gallery.location.lat},#{@gallery.location.lng}&zoom=12&size=290x240&markers=color:red%7Ccolor:red%7Clabel:C%7C#{@gallery.location.lat},#{@gallery.location.lng}&sensor=false",:id=>'static_image'),"http://maps.google.ch/maps?q=#{@gallery.location.long_label.cleanup_html}",:rel=>'external') %>
 		
@@ -29,7 +32,9 @@
 	<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>@next} %>
 	<h3><%= I18n.t(:previous) %></h3>
 	<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>@previous} %>
-	
+	<div class="clear"></div>
+	<h3><%= I18n.t(:more_galleries) %></h3>
+	<p><%= link_to I18n.t(:view_other_galleries_in_category,:category=>@gallery.gallery_type.label.downcase),photography_galleries_path(@gallery.gallery_type,:format=>:html)  %></p>
 <%- end -%>
 
 

@@ -330,9 +330,9 @@ div.closeNav {display: none;}
 .entry ol,.entry ul {margin:0 0 15px 25px; padding: 0; font-size: 12px;}
 .entry li {padding:0 0 0 5px; list-style-position:outside; line-height: 1.5em;}
 .entry p {margin: 0 0 15px;}
-.details {font-size: 12px;  margin-bottom: 30px;margin-top:5px;}
-
-
+ .post_details {font-size: 12px;  margin-bottom: 30px;margin-top:5px;}
+h4.date{font-size:13px; padding-bottom:9px;}
+.post_image{float:right; padding:10px 0 15px 10px}
 body.category .post p {padding-top: 7px;}
 
 /*--- POST THUMBNAIL STUFF ---*/
@@ -391,7 +391,7 @@ body.category-portfolio .navigation .pagenav a {padding-bottom: 20px;}
 #sidebarScroll.small {padding-right:15px;}
 #sidebar ul {display: none;}
 #sidebar ul li.widget {list-style: none; margin: 0 0 20px; font-size: 12px;}
-#sidebar ul li.widget ul li {list-style-type:disc; list-style-position: inside;}
+#sidebar ul li.widget ul li {list-style-type:none; list-style-position: inside;}
 #sidebar ul li.widget ul li ul li {padding: 0 0 0 15px; list-style-type:disc; list-style-position: inside;}
 
 #sidebarHint {background: url(/images/more-trans.png) no-repeat; height: 52px; width: 20px; text-indent: -9999px; overflow: hidden; position: absolute; left: 7px; top: 50%; margin-top: -26px;}
@@ -588,7 +588,9 @@ small {font-size: .7em;}
 .jScrollPaneDragTop { position: absolute; top: 0; left: 0; overflow: hidden; }
 .jScrollPaneDragBottom { position: absolute; bottom: 0; left: 0; overflow: hidden; }
 
-
+.gallery_container.photoindex .year_sep{
+	height:260px;
+}
 /* video player */
 ul.videos_nav {
 	list-style-type:none;
@@ -616,4 +618,10 @@ ul.videos_nav li{
 }
 #video_code span.loading{
 	margin:0 auto;
+}
+
+.year_sep{
+	clear:both;
+	width:100%;
+	display:block;
 }

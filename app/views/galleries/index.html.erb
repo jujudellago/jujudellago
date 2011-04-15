@@ -3,9 +3,18 @@
 <%#= content_for :bgimg do -%><%#= @gallery_type.random_image %><%#- end %>
 <% if !@galleries.blank? %>
 <div class="gallery_container">
-  <% for gallery in @galleries %>
-	<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>gallery} %>
- <% end %>
+  <%- oldyear="" 
+	i=0
+	-%>
+	<%- @galleries.each do |year,collection| -%>
+		<br class="clear" />
+		<%= content_tag(:h2,year)  %>
+   	 	<span class="year_sep">
+   	 	<%- collection.each do |gallery| -%>
+   	 		<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>gallery} %>
+   	 	<% end %>
+		</span>
+	<% end %>
 </div>
 <% else %>
   no galleries

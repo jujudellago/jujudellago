@@ -1,7 +1,7 @@
 class GalleriesController < ApplicationController
   before_filter :set_gallery_type
   def index
-    @galleries=@gallery_type.galleries.where('enabled=?',true).order('event_date desc')
+    @galleries=@gallery_type.galleries.where('enabled=?',true).order('event_date desc').group_by { |g| I18n.l(g.event_date,:format=>"%Y")  }
   end
 
   def show
@@ -16,7 +16,7 @@ class GalleriesController < ApplicationController
   
   private
   def set_gallery_type
-    @gallery_type=GalleryType.find(params[:gallery_type_id])
+    @gallery_type=GalleryType.find(params[:photography_id])
     
   end
   

@@ -1,23 +1,17 @@
 <% page_title @article.category.label %>
 
 <div class="article_body">
+					<%= image_tag(@article.icon.url(:small),:class=>'post_image') %>
 	<!-- <div class="pubDate">
 		<span class="day"><%=  @article.display_date.strftime('%d') -%></span>
 		<span class="month"><%=  @article.display_date.strftime('%b') -%></span>
 		<span class="year"><%=  @article.display_date.strftime('%Y') -%></span>
 	</div> -->
-<h2><%= @article.title_fr %></h2>
-
-	
-		<h3 class="date"><%= I18n.t(:published_on) %>: <%=  I18n.l(@article.display_date,:format=>"%e %b %Y") -%></h3>
-
+<h2><%= @article.title.upcase %></h2>
+<h4 class="date"><%= I18n.t(:published_on) %>: <%=  I18n.l(@article.display_date,:format=>"%e %b %Y") -%></h4>
 	<div class="article_content">
-
-		
-
-
 		<div class="text">
-			<%= @article.body_fr %>
+			<%= @article.body %>
 		</div>
 		<div class="info">
 		
@@ -27,5 +21,6 @@
 		</div>
 	</div>
 </div>
+	<div class="clear"></div>
 <%= back_link %>
 

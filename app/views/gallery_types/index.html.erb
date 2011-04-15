@@ -1,24 +1,28 @@
-<h1><%= I18n.t("Photography",:default=>'Photography') %></h1>
+<%- @extra_body_class="category category-gallery" -%>
+<%- title I18n.t("Photography",:default=>'Photography') %>
+
 <% if !@gallery_types.blank? %>
-
+<div class="gallery_container photoindex">
 	<% for gallery_type in @gallery_types %>
-		<h2><%= link_to gallery_type.name, gallery_type_galleries_path(gallery_type) %></h2>
+	<%- if gallery_type.galleries.size>0 -%>
+		<h2><%= link_to gallery_type.label, photography_galleries_path(gallery_type,:format=>:html) %></h2>
+		<span class="year_sep">
+	
 		<%- gallery_type.galleries.all(:order=>:created_at,:limit=>3).each do |gallery| %>
-			<div class="post">
-				<h3 class="posttitle"><%= link_to(gallery.label,gallery_type_gallery_path(gallery_type,gallery)) %></h3>
-				<%- if gallery.default_photo -%>
-					<a class="thumb" href="<%= gallery_type_gallery_path(gallery_type,gallery) %>">
-						<%= image_tag(gallery.default_photo.image.url(:small)) %>
-					</a>
-				<%- end -%>
-	   			<div class="clear"></div>
-			</div><!--end post-->
+			<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>gallery} %>
 		<%- end -%>
+			<br class="clear" />
+			<p><strong>&raquo; <%= link_to I18n.t(:view_other_galleries_in_category,:category=>gallery_type.label),photography_galleries_path(gallery_type,:format=>:html)  %></strong></p>
+		</span>
+	<% end %>
   	<% end %>
-
+</div>
 <% else %>
   
 <% end %>
+
+
+
 
 
 
