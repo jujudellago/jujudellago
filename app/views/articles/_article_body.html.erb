@@ -11,7 +11,7 @@
 <h4 class="date"><%= I18n.t(:published_on) %>: <%=  I18n.l(@article.display_date,:format=>"%e %b %Y") -%></h4>
 	<div class="article_content">
 		<div class="text">
-			<%= @article.body %>
+			<%= @article.body.html_safe %>
 		</div>
 		<div class="info">
 		
