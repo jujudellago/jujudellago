@@ -1,14 +1,123 @@
-<h1>Bienvenue sur ma page facebook!</h1>
+<!-- <h1>Bienvenue sur ma page facebook!</h1>
 <h3>Cliquez sur "j'aime" pour suivre mes reportages photo</h3>
+ -->
 
-<div class="galleries_container">
-	<%- if @galleries.size>0 -%>
-		<span class="year_sep">	
-		<%- @galleries.each do |gallery| %>
-			<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>gallery} %>
-		<%- end -%>
-			<br class="clear" />
-		</span>
-  	<% end %>
+
+<div id="pagelet_latest_reports">
+	<div>
+		<div class="uiHeader uiHeaderTopAndBottomBorder mbm uiHeaderSection">
+			<div class="clearfix uiHeaderTop">
+				<div>
+					<h4 class="uiHeaderTitle">Bienvenue sur ma page facebook</h4>
+				</div>
+			</div>
+		</div>
+		<div class="phs">
+			<div class="profile-pagelet-section pageInfoTable">
+				<%- if params[:fan] %>
+				<p>Merci pour votre support, n'hésitez pas à parler de ma page à vos amis ;)</p>	
+				<%- else -%>
+				<p>Merci de montrer votre support en cliquant sur le bouton <%= image_tag('facebook_jaime.jpg') %></p>
+				<%- end -%>
+				
+				<p>Vous retrouverez mes photos sur cette page facebook, ainsi que sur mon site internet <a href="http://jujudellago-photoreports.com" target="_blank">jujudellago-photoreports.com</a>, me permettant d'afficher mes galeries de manière exclusives</p>
+				
+				<p>Les liens suivants vous feront donc ouvrir une nouvelle fenêtre.</p>
+				
+			</div>
+		</div>
+</div>
+
+
+
+<div id="pagelet_latest_reports">
+	<div>
+		<div class="uiHeader uiHeaderTopAndBottomBorder mbm uiHeaderSection">
+			<div class="clearfix uiHeaderTop">
+				<div>
+					<h4 class="uiHeaderTitle">Derniers reportages photo</h4>
+				</div>
+			</div>
+		</div>
+		<div class="phs">
+			<div class="profile-pagelet-section pageInfoTable">
+
+				
+				<div class="galleries_container">
+					<%- if @galleries.size>0 -%>
+						<span class="year_sep">	
+						<%- @galleries.each do |gallery| %>
+							<%- lnk=photography_gallery_url(gallery.gallery_type,gallery,:format=>:html) -%>
+						<div class="post">
+
+						    <ul class="full_overlay">
+
+						        <li class="content">
+						        	<h4><%= link_to(gallery.label,lnk,:target=>:blank) %></h4>
+						 <li><%= link_to(image_tag(gallery.default_photo.image.url(:thumb)),lnk,:target=>:blank) %></li>
+									<p><%=  gallery.display_date %>, <%= gallery.location.name %>.</p>
+									<!-- <p><%= link_to("&rarr;&nbsp;#{I18n.t(:view_pictures)}".html_safe,lnk,:target=>:blank) %></p> -->
+						        </li>
+
+						       
+
+						    </ul>
+							<div class="clear"></div>
+						</div><!--end post-->
+
+						<%- end -%>
+						
+							
+							<br class="clear" />
+						</span>
+				  	<% end %>
+				</div>
+				<p><a href="http://jujudellago-photoreports.com/fr/photography" target="_blank">&rarr; plus de galeries sur jujudellago-photoreports.com/fr/photography</a></p>
+			</div>
+		</div>
+</div>
+
+
+
+
+
+
+
+<div id="pagelet_latest_articles">
+	<div>
+		<div class="uiHeader uiHeaderTopAndBottomBorder mbm uiHeaderSection">
+			<div class="clearfix uiHeaderTop">
+				<div>
+					<h4 class="uiHeaderTitle">Derniers articles du blog</h4>
+				</div>
+			</div>
+		</div>
+		<div class="phs">
+			<div class="profile-pagelet-section pageInfoTable">
+				<div class="galleries_container">
+					<%- if @articles.size>0 -%>
+						<span class="year_sep">	
+						<%- @articles.each do |article| %>
+							<div class="post">
+								    <ul class="full_overlay">
+									<%- lnk= category_article_url(article.category,article,:format=>:html) -%>
+								        <li class="content">
+								        	<h4><%= article.category.label %>: <%= link_to(article.title, lnk,:target=>:blank)  %></h4>
+								 			<li><%= image_tag(article.icon.url(:thumb)) %></li>
+											<p><i><%=I18n.l(article.display_date,:format=>"%e %B %Y") %></i></p>
+											<!-- <p><%= link_to("&rarr;&nbsp;#{I18n.t(:read_article)}".html_safe,lnk,:target=>:blank) %></p> -->
+								        </li>
+								    </ul>
+								</div>
+							<!-- <strong><%= article.category.label %></strong>: <%= link_to article.title, category_article_url(article.category,article,:format=>:html) %>,  -->
+						<%- end -%>
+							
+							<br class="clear" />
+						</span>
+				  	<% end %>
+				</div>
+				<p><a href="http://jujudellago-photoreports.com" target="_blank">&rarr; visitez jujudellago-photoreports.com</a></p>
+			</div>
+		</div>
 </div>
 

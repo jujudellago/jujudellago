@@ -52,8 +52,8 @@ class Article < ActiveRecord::Base
   end
   
   
-  def self.latest
-    self.where(:published=>true).limit(10)
+  def self.latest(i=6)
+    self.where(:published=>true).limit(i).order('published_at desc')
   end
   
 

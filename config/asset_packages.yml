@@ -42,7 +42,7 @@ javascripts:
 stylesheets: 
 - facebook:
   - facebook
-  - overlays
+ # - overlays
 - hud:
   - hud
   - colorbox
