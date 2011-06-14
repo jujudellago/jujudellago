@@ -1,5 +1,7 @@
 --- 
 javascripts: 
+- facebook:
+  - facebook    
 - hud:
   - css_globe_tooltip
   - jquery.colorbox
@@ -38,6 +40,9 @@ javascripts:
   - forms
   - admin
 stylesheets: 
+- facebook:
+  - facebook
+  - overlays
 - hud:
   - hud
   - colorbox

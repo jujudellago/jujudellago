@@ -67,10 +67,11 @@
 	<div id="menuScroll">	
 		<ul id="dropmenu">
 			<li class="current_page_item"><a href="/">Home</a></li>
-			<%= content_tag :li, link_to(I18n.t(:blog),category_articles_path('news')) %>
+			<%= content_tag :li, link_to(I18n.t(:news),category_articles_path('news')) %>
 			<%= content_tag :li, link_to(I18n.t(:photos),photography_index_path) %>
 			<%= content_tag :li, link_to(I18n.t(:food),category_articles_path('food')) %>
 			<%= content_tag :li, link_to(I18n.t(:videos),videos_path) %>
+			<%= content_tag :li, link_to(I18n.t(:music),category_articles_path('music') ) %>
         	<!-- <li><a href="about.html" title="About">About</a>
         				<ul class='children'>
         					<li><a href="#" title="Sub Page">Sub Page</a></li>

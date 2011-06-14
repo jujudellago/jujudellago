@@ -11,7 +11,7 @@ Casein::Application.routes.draw do
   #match "/photoreports" => ""
   #match '/opencreate' => 'users#create',:as => :open_id_create,  :requirements => { :method => :get }
   match 'home/send_contact' => 'home#send_contact', :as => :send_contact
-   
+  match 'home/facebook' => 'home#facebook', :as => :facebook
    
     
    resources :categories,  :only => [:index] do

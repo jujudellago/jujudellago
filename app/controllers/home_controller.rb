@@ -5,5 +5,10 @@ class HomeController < ApplicationController
   def send_contact
     ContactMailer.contact_message(params[:name],params[:email],params[:message]).deliver
   end
+  
+  def facebook
+    @galleries=Gallery.latest
+    render :layout=>'facebook'    
+  end
 
 end

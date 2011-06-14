@@ -1,4 +1,4 @@
-<%- title @category.label %>
+<%- title @category.label.upcase  %>
 <% if !@articles.blank? %>
   <% for article in @articles %>
     <%- lnk=category_article_path(@category,article,:format=>:html) -%>

@@ -1,0 +1,14 @@
+<h1>Bienvenue sur ma page facebook!</h1>
+<h3>Cliquez sur "j'aime" pour suivre mes reportages photo</h3>
+
+<div class="galleries_container">
+	<%- if @galleries.size>0 -%>
+		<span class="year_sep">	
+		<%- @galleries.each do |gallery| %>
+			<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>gallery} %>
+		<%- end -%>
+			<br class="clear" />
+		</span>
+  	<% end %>
+</div>
+
