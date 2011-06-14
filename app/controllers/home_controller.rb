@@ -7,8 +7,8 @@ class HomeController < ApplicationController
   end
   
   def facebook
-    @galleries=Gallery.latest
-    @articles=Article.latest
+    @galleries=Gallery.latest(3)
+    @articles=Article.latest(3)
     render :layout=>'facebook'    
   end
 

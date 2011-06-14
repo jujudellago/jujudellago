@@ -26,8 +26,8 @@ class Gallery < ActiveRecord::Base
     end
 
 
-  def self.latest
-    self.where(:enabled=>true).limit(6).order(:created_at)
+  def self.latest(i=6)
+    self.where(:enabled=>true).limit(i).order(:created_at)
   end
   def self.next_galleries(gallery)
     where("event_date > ? and enabled=?", gallery.event_date,true).order('event_date').limit(5).all
