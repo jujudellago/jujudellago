@@ -111,10 +111,9 @@
 <div id="footerBanner">  
 	<!--NEWSTICKER-->
 	<div class="fadein">
-		<div class="newsTick"><a href="post.html"><strong>News</strong>: Well there's no news yet on the website</a></div>
-		<div class="newsTick"><a href="post.html"><strong>But</strong>... that shoud come soon</a></div>
-		<div class="newsTick"><a href="post.html"><strong>Hopefully</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  ...</a></div>
-		<div class="newsTick"><a href="post.html"><strong>Inch allah</strong>: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum  ...</a></div>
+		<%- Article.latest.each do |article| %>
+		<div class="newsTick"><strong><%= article.category.label %></strong>: <%= link_to article.title, category_article_url(article.category,article,:format=>:html) %>, <i><%=I18n.l(article.display_date,:format=>"%e %B %Y") %></i></div>
+		<%- end -%>
 	</div><!--end fadein-->
 		
 	<!--SOCIAL ICONS-->

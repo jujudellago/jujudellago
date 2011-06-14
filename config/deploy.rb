@@ -2,6 +2,8 @@ set :deploy_to, "/home/jujudell/apps/jujudellago"
 set :application, "jujudell.yabo-sites.com"
 
 
+require 'vendor/plugins/capistrano-db-tasks/lib/dbtasks'
+
 role :web, "jujudell@174.122.37.162"
 role :app, "jujudell@174.122.37.162"
 role :db,  "jujudell@174.122.37.162", :primary => true

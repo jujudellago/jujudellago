@@ -50,6 +50,12 @@ class Article < ActiveRecord::Base
     title
     
   end
+  
+  
+  def self.latest
+    self.where(:published=>true).limit(10)
+  end
+  
 
     def enabled
       published
