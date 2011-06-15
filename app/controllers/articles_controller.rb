@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
     @per_page=10
     @order_by="published_at"
     @articles=@category.articles.paginate(:per_page=> @per_page, :page=> params[:page], :conditions=>'published=true',
-    :order => "articles.#{@order_by} asc")
+    :order => "articles.#{@order_by} desc")
     respond_to do |wants|
       wants.html
       wants.rss

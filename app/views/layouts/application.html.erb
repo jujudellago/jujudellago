@@ -3,37 +3,20 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Jujudellago</title>
+	<meta name="keywords" content="<%= yield(:keywords) || render(:partial=>'/layouts/keywords')  %>" />
+	<meta name="description" content="<%= yield(:description) || render(:partial=>'/layouts/description')  -%>" />
 	<%= stylesheet_link_merged(:hud ).html_safe %>
 	<%= csrf_meta_tag %>
 </head>
-
 <body class="strd <%= @extra_body_class %>">
-<!--Uncomment for fullscreen background images. Don't forget image URL below-->
-
-
 <div id="formbackground"></div>
-
-<!--TOP BAR-->
 <div id="topBanner">
-
-	<!--LOGIN BUTTON-->
 	<div id="loginOpen" class="metaButton"><img src="images/profile-trans.png" alt="" height="10" width="9" /> &nbsp;<span>LOGIN</span></div>
-
-	<!--CONTACT BUTTON-->
 	<div id="formOpen" class="metaButton"><img src="images/email-trans.png" alt="" height="10" width="18" /> &nbsp;<span>CONTACT</span></div>
-
-	<!--SEARCH BUTTON-->
-	<!-- <div id="searchOpen" class="metaButton"><img src="images/search-trans.png" alt="" height="10" width="13" /> &nbsp;<span>SEARCH</span></div> -->
-
-	<!--SITE NAME-->
-	<!-- <h1 id="logo"><a href="/">Jujudellago</a></h1> --><!--end logo--> 
 	<%= content_tag(:div,link_to(image_tag("/images/banners/jujudellago_photoreports_200.png"),root_path),:id=>'logo_container') %>
-	
 </div><!--end topBanner-->
-
 <!--ANIMATING GIF WHILE PAGE LOADS-->
 <img id="loadingGif" src="/images/ajax-loader.gif" alt="" />
-	
 <!--THIS IS A MESSAGE FOR USERS WHO HAVE JAVASCRIPT TURNED OFF-->
 <noscript>
 <div id="noScript">
@@ -41,14 +24,6 @@
 	<p>You currently have javascript disabled. This site is best viewed with javascript active. Please turn javascript on and refresh this page.</p>
 </div><!--end noScript-->
 </noscript>
-		
-<!-- <div id="slider">
-	<a class="tooltip" href="post.html" title="Buy this theme!"><img src="images/slides/slide1.png" alt="Buy this theme!" height="400" width="780" /></a>
-	<a class="tooltip" href="post.html" title="9 slider effects"><img src="images/slides/slide2.png" alt="9 slider effects" height="400" width="780" /></a>
-	<a class="tooltip" href="post.html" title="20 built-in patterns"><img src="images/slides/slide1.png" alt="20 built-in patterns" height="400" width="780" /></a>
-	<a class="tooltip" href="post.html" title="Built-in login and contact form"><img src="images/slides/slide2.png" alt="Built-in login and contact form" height="400" width="780" /></a>
-</div> -->
-
 <div id="content">
 	<div id="scrollContent">
     	<%= content_tag :h1, yield(:title) if show_title? %>
@@ -56,10 +31,6 @@
 		<div class="clear"></div>
 	</div>
 </div>
-
-
-<!--end slider-->
-
 <!--NAVIGATION-->
 <div id="menu">
 	<div id="menuHint">MENU</div>
@@ -72,33 +43,11 @@
 			<%= content_tag :li, link_to(I18n.t(:food),category_articles_path('food')) %>
 			<%= content_tag :li, link_to(I18n.t(:videos),videos_path) %>
 			<%= content_tag :li, link_to(I18n.t(:music),category_articles_path('music') ) %>
-        	<!-- <li><a href="about.html" title="About">About</a>
-        				<ul class='children'>
-        					<li><a href="#" title="Sub Page">Sub Page</a></li>
-        					<li><a href="#" title="Sub Pages">Sub Pages</a>
-        						<ul class='children'>
-        							<li><a href="#" title="Sub Sub Page">Sub Sub Page</a></li>
-        							<li><a href="#" title="Sub Sub Page Again">Sub Sub Page Again</a>
-        								<ul class='children'>
-        									<li><a href="#" title="Sub Sub Sub Page">Sub Sub Sub Page</a></li>
-        									<li><a href="#" title="Sub Sub Sub Page">Sub Sub Sub Page</a>
-        										<ul class='children'>
-        											<li><a href="#" title="Sub Sub Sub Sub Page">Sub Sub Sub Sub Page</a></li>
-        										</ul>
-        									</li>
-        								</ul>
-        							</li>
-        						</ul>
-        					</li>
-        				</ul>
-        			</li> -->
 		</ul><!--end dropmenu-->
 	</div><!--end menuScroll-->
 </div><!--end menu-->
-
 <div id="sidebar">
 	<div id="sidebarHint">MORE</div>
-	
 	<div id="sidebarScroll">
 		<ul>
 				<li class="widget">
@@ -107,7 +56,6 @@
 		</ul>
 	</div><!--end sidebarScroll-->
 </div><!--end sidebar-->
-
 <!--FOOTER-->
 <div id="footerBanner">  
 	<!--NEWSTICKER-->
@@ -116,14 +64,12 @@
 		<div class="newsTick"><strong><%= article.category.label %></strong>: <%= link_to article.title, category_article_url(article.category,article,:format=>:html) %>, <i><%=I18n.l(article.display_date,:format=>"%e %B %Y") %></i></div>
 		<%- end -%>
 	</div><!--end fadein-->
-		
 	<!--SOCIAL ICONS-->
 	<a id="rss" class="socialBtn" href="#"></a>
 	<a id="twitter" class="socialBtn" href="http://www.twitter.com/jujudellago"></a>
 	<a id="facebook" class="socialBtn" href="http://www.facebook.com/pages/Jujudellago-Photoreports/144286052303738"></a>
 	<a id="youtube" class="socialBtn" href="http://www.youtube.com/jujudellago"></a>
 </div><!--end footerBanner-->
-
 <!--CONTACT FORM-->
 <div id="contactform"  class="contact flyer">
 	<div class="close">X</div>
@@ -145,19 +91,7 @@
     	<input name="send" id="submit_btn" type="submit" class="button" value="Send Message" />
 	</div>
 <%- end -%>
-</div><!--end contact-->
-
-<!--SEARCH FORM-->
-<!-- <div id="searching" class="flyer">
-	<div class="close">X</div>
-	<h4>Search This Site</h4>
-	<form method="get" id="searchform" action="">
-		<label class="hidden" for="s">Search for:</label>
-		<input type="text" value="Search" onfocus="this.value=''; this.onfocus=null;" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="GO!" />    
-	</form>
-</div> --><!--end searching-->
-
+</div>
 <!--LOGIN FORM-->
 <div id="login" class="flyer">
 	<div class="close">X</div>
@@ -178,50 +112,36 @@
 <script type="text/javascript" asrc="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>					
 <%= javascript_include_merged(:hud).html_safe  %>
 <%= yield :head_js %>
-<!--UNCOMMENT IF USING FULLSCREEN BACKGROUND. Don't forget image width and height below if different-->
-<!---->
 <%= background_image(yield :bgimg) %>
 <script src="javascripts/fullscreenr.js" type="text/javascript"></script>
 <script type="text/javascript">  
 var FullscreenrOptions = {  width: 1200, height: 700, bgID: '#bgimg' };
 jQuery.fn.fullscreenr(FullscreenrOptions);
 </script>
-
-
 <script type="text/javascript">
-//jQuery.noConflict(); 
 jQuery(document).ready(function(){
-	//SLIDER STUFF
-   // jQuery('#slider').fadeIn(400).nivoSlider({
-   // 	effect:'random',
-   // 	slices:15,
-   // 	animSpeed:500,
-   // 	pauseTime:5000,
-   // 	directionNav:true,
-   // 	directionNavHide:false, //Only show on hover
-   // 	controlNav:true, //1,2,3...
-   // 	pauseOnHover:true, //Stop animation while hovering
-   // 	manualAdvance:false, //Force manual transitions
-   // 	beforeChange: function(){},
-   // 	afterChange: function(){}
-   // });
 	var negativemargin = jQuery(".nivo-controlNav").outerWidth() / 2;
 	jQuery(".nivo-controlNav").css("marginLeft",-negativemargin);
-	
 	//TYPEWRITER EFFECT
 	jQuery('.listing p > a, small > a, .comment-meta > a, h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a').jTypeWriter({duration:1, sequential:false});
-		
 	//BACKGROUND CHANGER
 	jQuery(".design").click(function() {
 		var background = jQuery(this).css("backgroundImage");
 		jQuery("body").css("backgroundImage",background);
 	});	
-	
-	
-	
-	
 });
 </script>
-
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.yabo-sites.com/" : "http://stats.yabo-sites.com/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 2);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://stats.yabo-sites.com/piwik.php?idsite=2" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </body>
 </html>
