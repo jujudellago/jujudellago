@@ -2,6 +2,7 @@
 <%= content_for :bgimg do -%><%= @gallery.default_photo.image.url %><%- end %>
 <%- title @gallery.label -%>
 <span class="date_infos"><%=  I18n.l(@gallery.event_date,:format=>"%e %B %Y") %></span>
+<span class="back_link"><%= link_to I18n.t(:view_other_galleries_in_category,:category=>@gallery.gallery_type.label.downcase),photography_galleries_path(@gallery.gallery_type,:format=>:html)  %></span>
 <% if !@photos.blank? %>
 <div class="gallery_container">
 <% for photo in @photos %>

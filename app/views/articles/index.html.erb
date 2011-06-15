@@ -1,4 +1,4 @@
-<%- title @category.label.upcase  %>
+<%- title @category.label.titlecase  %>
 <% if !@articles.blank? %>
   <% for article in @articles %>
     <%- lnk=category_article_path(@category,article,:format=>:html) -%>
@@ -8,7 +8,7 @@
 				<%= image_tag(article.icon.url(:small),:class=>'postThumb') %>
 			</a>
 		<%- end -%>
-		<h2 class="posttitle"><%= link_to(article.title,lnk) %></h2>
+		<h2 class="posttitle"><%= link_to(article.title.titlecase,lnk) %></h2>
 		<small><%= I18n.l(article.published_at,:format=>"%e %B %Y") %>.</small>
 		<div class="post_details"><%= mytextilize(article.intro).html_safe %></div>
 		<p><%= link_to(I18n.t(:read_more),lnk) %></p>

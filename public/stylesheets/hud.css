@@ -39,6 +39,10 @@ body {
 	z-index: -1;
 }
 
+.back_link{
+	float:right;
+}
+
 /* -----A TAG STUFF----- */
 a {text-decoration:none; color:#fff;}
 a:hover {text-decoration:underline;}
