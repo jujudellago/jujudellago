@@ -11,7 +11,7 @@ module Casein
     
     def index
       @casein_page_title = 'Photos'
-  		@photos = @gallery.photos.paginate :order=>'position', :page => params[:page]
+  		@photos = @gallery.photos.paginate :order=>'position', :page => params[:page], :per_page=>200
   		respond_with @photos
     end
   
