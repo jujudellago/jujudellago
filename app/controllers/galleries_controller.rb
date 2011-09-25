@@ -11,7 +11,7 @@ class GalleriesController < ApplicationController
     @previous=@gallery.previous
     
     #@photos=@gallery.photos.paginate :order=>'created_at', :page => params[:page],:per_page=>9
-    @photos=@gallery.photos.all :order=>'created_at'
+    @photos=@gallery.photos.all :order=>'position'
   end
   
   private

@@ -234,7 +234,7 @@ namespace :yabo do
      lst=Dir.new(strpath).entries.sort
      
      lst.each do |e| 
-       if e.ends_with?(".jpg")
+       if e.ends_with?(".jpg") || e.ends_with?(".gif")
           f=File.join(strpath,e)
          
           ext=e.get_file_extension

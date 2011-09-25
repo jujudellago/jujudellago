@@ -4,11 +4,11 @@
 <% if !@gallery_types.blank? %>
 <div class="gallery_container photoindex">
 	<% for gallery_type in @gallery_types %>
-	<%- if gallery_type.galleries.size>0 -%>
+	<%- if gallery_type.galleries.valid.size>0 -%>
 		<h2><%= link_to gallery_type.label, photography_galleries_path(gallery_type,:format=>:html) %></h2>
 		<span class="year_sep">
 	
-		<%- gallery_type.galleries.all(:order=>:created_at,:limit=>3).each do |gallery| %>
+		<%- gallery_type.galleries.recent_valid.each do |gallery| %>
 			<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>gallery} %>
 		<%- end -%>
 			<br class="clear" />

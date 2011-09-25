@@ -11,8 +11,8 @@
 <body class="strd <%= @extra_body_class %>">
 <div id="formbackground"></div>
 <div id="topBanner">
-	<div id="loginOpen" class="metaButton"><img src="images/profile-trans.png" alt="" height="10" width="9" /> &nbsp;<span>LOGIN</span></div>
-	<div id="formOpen" class="metaButton"><img src="images/email-trans.png" alt="" height="10" width="18" /> &nbsp;<span>CONTACT</span></div>
+	<div id="loginOpen" class="metaButton"><img src="/images/profile-trans.png" alt="" height="10" width="9" /> &nbsp;<span>LOGIN</span></div>
+	<div id="formOpen" class="metaButton"><img src="/images/email-trans.png" alt="" height="10" width="18" /> &nbsp;<span>CONTACT</span></div>
 	<%= content_tag(:div,link_to(image_tag("/images/banners/jujudellago_photoreports_200.png"),root_path),:id=>'logo_container') %>
 </div><!--end topBanner-->
 <!--ANIMATING GIF WHILE PAGE LOADS-->
@@ -113,7 +113,7 @@
 <%= javascript_include_merged(:hud).html_safe  %>
 <%= yield :head_js %>
 <%= background_image(yield :bgimg) %>
-<script src="javascripts/fullscreenr.js" type="text/javascript"></script>
+<script src="/javascripts/fullscreenr.js" type="text/javascript"></script>
 <script type="text/javascript">  
 var FullscreenrOptions = {  width: 1200, height: 700, bgID: '#bgimg' };
 jQuery.fn.fullscreenr(FullscreenrOptions);

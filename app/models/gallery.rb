@@ -12,6 +12,11 @@ class Gallery < ActiveRecord::Base
 
   default_scope :order => 'event_date desc'
 
+  
+  scope :valid, lambda { 
+      where("galleries.enabled = ?", true)
+  }
+  scope :recent_valid, valid.order("galleries.created_at DESC").limit(3)
 
   def next
       v= self.class.find :first, :conditions => ["id > ?",self.id], :order => "id ASC"
