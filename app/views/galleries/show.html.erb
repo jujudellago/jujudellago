@@ -29,10 +29,14 @@
 		
 	</div>
 	<div class="clear"></div>
+	<%- if @next -%>
 	<h3><%= I18n.t(:next) %></h3>
 	<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>@next} %>
+	<%- end -%>
+	<%- if @previous -%>
 	<h3><%= I18n.t(:previous) %></h3>
 	<%= render :partial=>'/galleries/gallery_box',:locals=>{:gallery=>@previous} %>
+	<%- end -%>
 	<div class="clear"></div>
 	<h3><%= I18n.t(:more_galleries) %></h3>
 	<p><%= link_to I18n.t(:view_other_galleries_in_category,:category=>@gallery.gallery_type.label.downcase),photography_galleries_path(@gallery.gallery_type,:format=>:html)  %></p>

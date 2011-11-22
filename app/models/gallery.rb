@@ -19,13 +19,13 @@ class Gallery < ActiveRecord::Base
   scope :recent_valid, valid.order("galleries.created_at DESC").limit(3)
 
   def next
-      v= self.class.find :first, :conditions => ["id > ?",self.id], :order => "id ASC"
+      v= self.class.find :first, :conditions => ["id > ? and gallery_type_id=?",self.id,self.gallery_type_id], :order => "id ASC"
       v= self.class.first if v.nil?
       return v
     end
 
     def previous
-      v= self.class.find :first, :conditions => ["id < ?",self.id],:order => "id DESC"
+      v= self.class.find :first, :conditions => ["id < ? and gallery_type_id=?",self.id,self.gallery_type_id],:order => "id DESC"
       v= self.class.last if v.nil?
       return v
     end

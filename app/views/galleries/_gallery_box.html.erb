@@ -1,3 +1,4 @@
+<% if gallery && gallery.default_photo && gallery.default_photo.image %>
 <%- lnk=photography_gallery_path(gallery.gallery_type,gallery,:format=>:html) -%>
 <div class="post">
 	
@@ -14,3 +15,4 @@
     </ul>
 	<div class="clear"></div>
 </div><!--end post-->
+<%- end -%>
