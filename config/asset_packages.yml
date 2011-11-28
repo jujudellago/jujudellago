@@ -43,6 +43,9 @@ stylesheets:
 - facebook:
   - facebook
  # - overlays
+- popup:
+  - hud
+  - pagination
 - hud:
   - hud
   - colorbox

@@ -9,7 +9,7 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql'
-gem 'mysql2', :require => 'mysql'
+gem 'mysql2', '< 0.3', :require => 'mysql'
 gem 'casein', :path => "vendor/gems/casein"
 
 gem 'capistrano'
@@ -20,12 +20,16 @@ gem 'tiny_mce'
 gem 'i18n-active_record', :path=>'vendor/gems/i18n-active_record',   :require => 'i18n/active_record'
 gem 'acts-as-tree-with-dotted-ids', :path=>'vendor/gems/acts-as-tree-with-dotted-ids'
 gem 'rack', '1.2.2'
+#gem "galetahub-simple_captcha", :require => "simple_captcha"
+#gem 'acts_as_textcaptcha'
+
+gem "recaptcha", :require => "recaptcha/rails"
 
 #gem 'i18n-active_record',  :git => 'git://github.com/svenfuchs/i18n-active_record.git',   :require => 'i18n/active_record'
 #gem 'acts-as-tree-with-dotted-ids', :git=>'git://github.com/tma/acts-as-tree-with-dotted-ids.git'
 
 gem "vimeo"
-gem 'formtastic', '1.1.0'
+gem 'formtastic' , '< 2.0'
 gem 'acts_as_indexed'
 gem 'RedCloth' 
 gem 'youtube_it'

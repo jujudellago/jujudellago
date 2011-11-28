@@ -1,1 +1,5 @@
+<% if @oksend %>
 $('#contact_form_container').html("<h2>Thanks for your message!</h2>");
+<% else %>
+$('#contact_form_container').html('<h2>Erreur de captcha!</h2><%=render :partial=>"/shared/contact_form"%>');
+<% end %>

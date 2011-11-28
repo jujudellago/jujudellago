@@ -1,0 +1,19 @@
+ <%= form_tag(send_contact_url,:method=>'post',:remote=>false) do -%>
+	<div id="contact_form_container">
+    	<h4>Send Email</h4>    
+    	<p>
+    		<input type="text" name="name" id="name" value="" class="input" /> 
+    		<label class="smallInput" for="name">Name:</label>
+    	</p>
+    	<p>
+    		<input type="text" name="email" id="email" value="" class="input" /> 
+    		<label class="smallInput" for="email">Email:</label>
+    	</p>
+    	<p>
+    		<textarea name="message" id="message" class="input"></textarea>
+    		<label class="smallInput" for="message">Message:</label>
+    	</p>
+		<p>	<%= recaptcha_tags(:display=>{:theme=>'black',:lang=>I18n.locale})  %></p>
+    	<input name="send" id="submit_btn" type="submit" class="button" value="Send Message" />
+	</div>
+<%- end -%>

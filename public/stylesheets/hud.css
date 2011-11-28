@@ -145,13 +145,15 @@ h6 a:hover {text-decoration:underline;}
 	line-height: 35px;
 	text-shadow:1px 1px 1px rgba(0, 0, 0, 0.2);
 }
-.flyer p {clear: right; margin-bottom: 10px; line-height: normal;}
-.flyer a {color: #fff;}
-.flyer a:hover {text-decoration: underline; color: #fff;}
-.flyer ul {clear: both; list-style-position: inside; font-size: 12px;}
-.flyer label { line-height: 40px; }
-.flyer input[type="text"],.flyer input[type="password"], .flyer textarea {padding: 5px; border: 1px solid #000;}
-.flyer textarea {height: 50px;}
+.flyer p, .iframeform p {clear: right; margin-bottom: 10px; line-height: normal;}
+.flyer a, .iframeform a {color: #fff;}
+.flyer a:hover, .iframeform a:hover {text-decoration: underline; color: #fff;}
+.flyer ul, .iframeform ul {clear: both; list-style-position: inside; font-size: 12px;}
+.flyer label, .iframeform label { line-height: 40px; }
+.flyer input[type="text"],.flyer input[type="password"], .flyer textarea ,
+.iframeform input[type="text"],.iframeform input[type="password"], .iframeform textarea 
+{padding: 5px; border: 1px solid #000;}
+.flyer textarea , .iframeform textarea{height: 50px;}
 #formbackground {width:100%; height: 100%; position: fixed; top:0; left: 0; z-index: 999; background: #000; display: none;}
 
 /*---FLYING CONTACT FORM----*/

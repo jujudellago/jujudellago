@@ -1,0 +1,8 @@
+<% if @oksend %>
+	<h2>Merci pour votre message</h2>
+<%- else -%>
+<div id="contactform" class="iframeform">
+	<h2>Erreur de captcha!</h2>
+<%= render :partial=>'/shared/contact_form' %>
+</div>
+<%- end -%>

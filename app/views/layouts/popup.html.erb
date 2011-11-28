@@ -3,18 +3,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title> popup</title>
-<%= stylesheet_link_tag 'popup_packaged' %>
+	<%= stylesheet_link_merged(:popup ).html_safe %>
 
 <!-- gdf -->
 <%= yield(:head_js) %>
 </head>
 <body>
-	<div id="popup_body" >
-		<div id="content_left">
-			<h1><%=  yield(:page_title) %></h1>
-	   		<%= yield %>
-		</div>  <!-- /content -->
-		<div id="content_right"><%= yield(:center) %></div>
-	</div>
+        <div id="popup_body" >
+                <div id="content_left">
+                        <h1><%=  yield(:page_title) %></h1>
+                        <%= yield %>
+                </div>  <!-- /content -->
+                <div id="content_right"><%= yield(:center) %></div>
+        </div>
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" asrc="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js"></script>					
+<%= javascript_include_merged(:hud).html_safe  %>
 </html>

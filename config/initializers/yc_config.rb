@@ -15,8 +15,6 @@ DESCRIPTION=SERVER_CONFIG['description']
 YOUTUBE_API_KEY=SERVER_CONFIG['youtube_api_key']
 GOOGLEMAPS_API_KEY=SERVER_CONFIG['googlemaps_api_key']
 
-ENV['RECAPTCHA_PUBLIC_KEY']  = SERVER_CONFIG['recaptcha_public_key']
-ENV['RECAPTCHA_PRIVATE_KEY'] = SERVER_CONFIG['recaptcha_private_key_key']
 
 if defined? Geokit
 	Geokit::Geocoders::google = GOOGLEMAPS_API_KEY

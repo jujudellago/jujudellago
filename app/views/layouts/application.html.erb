@@ -73,24 +73,9 @@
 <!--CONTACT FORM-->
 <div id="contactform"  class="contact flyer">
 	<div class="close">X</div>
- <%= form_tag(send_contact_url,:method=>'post',:remote=>true) do -%>
-	<div id="contact_form_container">
-    	<h4>Send Email</h4>    
-    	<p>
-    		<input type="text" name="name" id="name" value="" class="input" /> 
-    		<label class="smallInput" for="name">Name:</label>
-    	</p>
-    	<p>
-    		<input type="text" name="email" id="email" value="" class="input" /> 
-    		<label class="smallInput" for="email">Email:</label>
-    	</p>
-    	<p>
-    		<textarea name="message" id="message" class="input"></textarea>
-    		<label class="smallInput" for="message">Message:</label>
-    	</p>
-    	<input name="send" id="submit_btn" type="submit" class="button" value="Send Message" />
-	</div>
-<%- end -%>
+	<%#= render :partial=>'/shared/contact_form' %>
+	<iframe src="/contact.html" style="width:330px;height:450px;border:none"></iframe>
+
 </div>
 <!--LOGIN FORM-->
 <div id="login" class="flyer">
